@@ -1,0 +1,5 @@
+name,sequence,file,vol_min,vol_max,vol_mod,pitch_min,pitch_max,dist_min,dist_max,channel,type,probability,loop,masterslave,loadspec,subtitle,compression,secondaryaliasname,volumefalloffcurve,startdelay,speakermap,reverb,lfe percentage,center percentage,platform,envelop_min,envelop_max,envelop percentage
+
+# Music,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+hidingtime,,music/HGW_blackout_nightvision.mp3,1,,music,,,,,auto2d,streamed,,looping,master,all_mp,,,,,,music,nowetlevel fulldrylevel,,,,,,,mp3
+seekingtime,,hideandseek/BennyHill.mp3,1,,music,,,,,auto2d,streamed,,looping,master,all_mp,,,,,,music,nowetlevel fulldrylevel,,,,,,,mp3

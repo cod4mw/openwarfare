@@ -1,0 +1,54 @@
+#  _____                  _    _             __
+# |  _  |                | |  | |           / _|
+# | | | |_ __   ___ _ __ | |  | | __ _ _ __| |_ __ _ _ __ ___
+# | | | | '_ \ / _ \ '_ \| |/\| |/ _` | '__|  _/ _` | '__/ _ \
+# \ \_/ / |_) |  __/ | | \  /\  / (_| | |  | || (_| | | |  __/
+#  \___/| .__/ \___|_| |_|\/  \/ \__,_|_|  |_| \__,_|_|  \___|
+#       | |               We don't make the game you play.
+#       |_|                 We make the game you play BETTER.
+# 
+#            Website: http://openwarfaremod.com/
+
+material,animbg_back
+material,animbg_blur_back
+material,animbg_fogscroll
+material,animbg_fogscrollthin
+material,animbg_front
+material,animbg_front2
+material,button_highlight_end
+material,compass_map_default
+material,compass_waypoint_captureneutral
+material,compassping_enemy
+material,compassping_friendly
+material,compassping_player
+material,gfx_dark_smoke_atlas_bg
+material,gfx_exp_igc
+material,gfx_exp_spark
+material,gfx_explosion_flash
+material,gfx_explosion_flash_atlas
+material,gfx_smk_white_atlas
+material,gfx_snow_sheet_add
+material,gfx_spark_atlas
+material,gradient_bottom
+material,gradient_fadein
+material,gradient_top
+material,hud_arrow_left
+material,hud_us_grenade
+material,hud_us_smokegrenade
+material,hud_xpticker480
+material,hud_xpticker480ws
+material,line_horizontal
+material,line_horizontal_scorebar
+material,map_border
+material,mc/mtl_marine_glove
+material,mc/mtl_marine_glovesleeve
+material,minimap_background
+material,minimap_tickertape_background
+material,minimap_tickertape_mp
+material,objective_line
+material,overlay_low_health
+material,rank_icon_bg
+material,rank_rec1
+material,scorebar_backdrop
+material,scorebar_fadein
+material,white

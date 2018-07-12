@@ -1,0 +1,1384 @@
+//******************************************************************************
+//  _____                  _    _             __
+// |  _  |                | |  | |           / _|
+// | | | |_ __   ___ _ __ | |  | | __ _ _ __| |_ __ _ _ __ ___
+// | | | | '_ \ / _ \ '_ \| |/\| |/ _` | '__|  _/ _` | '__/ _ \
+// \ \_/ / |_) |  __/ | | \  /\  / (_| | |  | || (_| | | |  __/
+//  \___/| .__/ \___|_| |_|\/  \/ \__,_|_|  |_| \__,_|_|  \___|
+//       | |               We don't make the game you play.
+//       |_|                 We make the game you play BETTER.
+//
+//            Website: http://openwarfaremod.com/
+//******************************************************************************
+
+VERSION          "1"
+CONFIG           "C:\trees\cod3\cod3\bin\StringEd.cfg"
+FILENOTES        ""
+
+//******************************************************************************
+// maps/mp/gametypes/ass.gsc
+//******************************************************************************
+REFERENCE ASSASSINATION
+LANG_RUSSIAN "Уничтожение"
+
+REFERENCE ASSASSINATION_ATTACKER
+LANG_RUSSIAN "Защитите Важную Персону"
+
+REFERENCE ASSASSINATION_ATTACKER_SCORE
+LANG_RUSSIAN "Защитите и доставьте Важную Персону к точке эвакуации. Очки для победы: &&1 ."
+
+REFERENCE ASSASSINATION_DEFENDER
+LANG_RUSSIAN "Устраните Важную Персону"
+
+REFERENCE ASSASSINATION_DEFENDER_SCORE
+LANG_RUSSIAN "Устраните Важную Персону или не дайте добраться до точки эвакуации. Очки для победы: &&1 ."
+
+REFERENCE ASSASSINATION_EXTRACTING_VIP
+LANG_RUSSIAN "Эвакуация..."
+
+REFERENCE ASSASSINATION_VIP_EXTRACTED
+LANG_RUSSIAN "Важная Персона эвакуирована"
+
+REFERENCE ASSASSINATION_VIP_ELIMINATED
+LANG_RUSSIAN "Важная Персона уничтожена"
+
+
+//******************************************************************************
+// maps/mp/gametypes/bel.gsc
+//******************************************************************************
+REFERENCE BEHIND_ENEMY_LINES
+LANG_RUSSIAN "В Тылу Врага"
+
+REFERENCE OBJECTIVES_ATTACKERS_BEL
+LANG_RUSSIAN "Зарабатывайте очки уничтожая беглецов"
+
+REFERENCE OBJECTIVES_DEFENDERS_BEL
+LANG_RUSSIAN "Зарабатывайте очки за выживание и уничтожение врагов"
+
+REFERENCE OBJECTIVES_ATTACKERS_BEL_SCORE
+LANG_RUSSIAN "Зарабатывайте очки уничтожая беглецов. Выигрывает игрок набравший &&1 очков."
+
+REFERENCE OBJECTIVES_DEFENDERS_BEL_SCORE
+LANG_RUSSIAN "Зарабатывайте очки за выживание и уничтожение врагов. Выигрывает игрок набравший &&1 очков."
+
+REFERENCE OBJECTIVES_ATTACKERS_BEL_HINT
+LANG_RUSSIAN "Уничтожайте Беглецов."
+
+REFERENCE OBJECTIVES_DEFENDERS_BEL_HINT
+LANG_RUSSIAN "Выживите и уничтожьте врагов."
+
+REFERENCE BEL_TIME_ALIVE
+LANG_RUSSIAN "Живой уже: &&1"
+
+REFERENCE BEL_POINTS_EARNED
+LANG_RUSSIAN "Очки: &&1"
+
+REFERENCE BEL_WILLSPAWN_ATTACKER
+LANG_RUSSIAN "Вы возродитесь как Охотник!"
+
+REFERENCE BEL_WILLSPAWN_DEFENDER
+LANG_RUSSIAN "Вы возродитесь как Беглец!"
+
+REFERENCE BEL_SPAWNED_ATTACKER
+LANG_RUSSIAN "Вы Охотник!"
+
+REFERENCE BEL_SPAWNED_DEFENDER
+LANG_RUSSIAN "Вы Беглец!"
+
+
+//******************************************************************************
+// maps/mp/gametypes/ch.gsc
+//******************************************************************************
+REFERENCE CAPTURE_AND_HOLD
+LANG_RUSSIAN "Захватить и защитить"
+
+REFERENCE CH_DONTHAVE_FLAG
+LANG_RUSSIAN "Верните ваш флаг: &&1"
+
+REFERENCE CH_FLAG_LOST
+LANG_RUSSIAN "&&1 потерял флаг."
+
+REFERENCE CH_FLAG_LOST_ENEMY
+LANG_RUSSIAN "Враг потерял флаг."
+
+REFERENCE CH_FLAG_TAKEN
+LANG_RUSSIAN "&&1 забрал флаг."
+
+REFERENCE CH_FLAG_TAKEN_ENEMY
+LANG_RUSSIAN "Противник забрал флаг."
+
+REFERENCE CH_HAVE_FLAG
+LANG_RUSSIAN "Защищайте флаг: &&1"
+
+REFERENCE CH_HINT
+LANG_RUSSIAN "Захватите флаг."
+
+REFERENCE CH_MODE0
+LANG_RUSSIAN "Набирайте очки, захватывая флаг и защищая его пока таймер не достигнет нуля."
+
+REFERENCE CH_MODE1
+LANG_RUSSIAN "Набирайте очки, захватывая флаг и защищая его."
+
+REFERENCE CH_SCORE_MODE0
+LANG_RUSSIAN "Набирайте очки, захватывая флаг и защищая его пока таймер не достигнет нуля. Команда, набравшая &&1 очков - побеждает."
+
+REFERENCE CH_SCORE_MODE1
+LANG_RUSSIAN "Набирайте очки, захватывая флаг и защищая его. Команда, набравшая &&1 очков - побеждает."
+
+REFERENCE CH_WAITING_FOR_FLAG
+LANG_RUSSIAN "Ожидание появления флага ..."
+
+
+//******************************************************************************
+// maps/mp/gametypes/ctf.gsc
+//******************************************************************************
+REFERENCE ENEMY_FLAG_DROPPED
+LANG_RUSSIAN "Вражеский флаг утерян!"
+
+REFERENCE ENEMY_FLAG_RETURNED_BY
+LANG_RUSSIAN "&&1 возвращает вражеский флаг!"
+
+REFERENCE FLAG_DROPPED
+LANG_RUSSIAN "Ваш флаг утерян!"
+
+REFERENCE FLAG_DROPPED_BY
+LANG_RUSSIAN "&&1 потерял ваш флаг!"
+
+REFERENCE FLAG_RECOVERED_BY
+LANG_RUSSIAN "&&1 вернул ваш флаг!"
+
+REFERENCE ENEMY_FLAG_RECOVERED_BY
+LANG_RUSSIAN "&&1 вернул вражеский флаг!"
+
+REFERENCE YOUR_FLAG_RETURNING_IN
+LANG_RUSSIAN "Флаг вернется через: &&1"
+
+REFERENCE ENEMY_FLAG_RETURNING_IN
+LANG_RUSSIAN "Вражеский флаг вернется через: &&1"
+
+
+//******************************************************************************
+// maps/mp/gametypes/ftag.gsc
+//******************************************************************************
+REFERENCE FREEZETAG
+LANG_RUSSIAN "Freeze Tag"
+
+REFERENCE FTAG_ALLIES_FROZEN
+LANG_RUSSIAN "Силы союзников заморожены"
+
+REFERENCE FTAG_AXIS_FROZEN
+LANG_RUSSIAN "Силы оппозиции заморожены"
+
+REFERENCE FTAG_UNFROZEN_STATS
+LANG_RUSSIAN "Вас разморозили &&1. Вы были заморожены ^3&&2^7 секунд."
+
+REFERENCE OBJECTIVES_FTAG
+LANG_RUSSIAN "Набирайте очки, замораживая игроков из другой команды."
+
+REFERENCE OBJECTIVES_FTAG_SCORE
+LANG_RUSSIAN "Набирайте очки, замораживая игроков из другой команды и размораживая своих. Команда, набравшая &&1 побеждает."
+
+REFERENCE OBJECTIVES_FTAG_HINT
+LANG_RUSSIAN "Заморозьте всех игроков из другой команды."
+
+
+//******************************************************************************
+// maps/mp/gametypes/gg.gsc
+//******************************************************************************
+REFERENCE GUNGAME
+LANG_RUSSIAN "Gun Game"
+
+REFERENCE GUNGAME_OBJECTIVES
+LANG_RUSSIAN "Набирайте уровень, убивая других игроков из имеющегося у вас оружия."
+
+REFERENCE GUNGAME_SCORE
+LANG_RUSSIAN "Набирайте уровень, убивая других игроков из имеющегося у вас оружия. Игрок, убивший другого из последнего оружия в списке - побеждает."
+
+REFERENCE GUNGAME_HINT
+LANG_RUSSIAN "Убейте остальных игроков."
+
+REFERENCE GUNGAME_WINNER
+LANG_RUSSIAN "Убил игрока из последнего оружия в списке!"
+
+
+//******************************************************************************
+// maps/mp/gametypes/gr.gsc
+//******************************************************************************
+REFERENCE GREED
+LANG_ENGLISH "Greed"
+
+REFERENCE OBJECTIVES_GR
+LANG_ENGLISH "Collect dogtags and deliver them to the drop zone."
+
+REFERENCE OBJECTIVES_GR_SCORE
+LANG_ENGLISH "Collect dogtags and deliver them to the drop zone. First player with &&1 points wins."
+
+REFERENCE OBJECTIVES_GR_HINT
+LANG_ENGLISH "Collect dogtags and deliver them to the drop zone."
+
+REFERENCE DOGTAGS_CAPTURED_BY
+LANG_ENGLISH "^3&&1^7 has captured ^3&&2^7 dogtag(s)."
+
+REFERENCE GR_DROPZONES_RELOCATING_IN
+LANG_ENGLISH "Drop zones re-locating in &&1"
+
+REFERENCE GR_DROPZONE_RELOCATING_IN
+LANG_ENGLISH "Drop zone re-locating in &&1"
+
+
+//******************************************************************************
+// maps/mp/gametypes/hns.gsc
+//******************************************************************************
+REFERENCE HIDEANDSEEK
+LANG_ENGLISH "Hide And Seek"
+
+REFERENCE PROPS_SHORT
+LANG_ENGLISH "Props"
+
+REFERENCE CHOOSE_CLASS_PROP
+LANG_ENGLISH "Choose Prop Class"
+
+REFERENCE OBJECTIVES_HNS_ATTACKER
+LANG_ENGLISH "Hunt down and kill the props."
+
+REFERENCE OBJECTIVES_HNS_ATTACKER_SCORE
+LANG_ENGLISH "Hunt down and kill the props.  First team to &&1 wins."
+
+REFERENCE OBJECTIVES_HNS_ATTACKER_HINT
+LANG_ENGLISH "Hunt down and kill the props."
+
+REFERENCE OBJECTIVES_HNS_DEFENDER
+LANG_ENGLISH "Survive by hiding from the hunters."
+
+REFERENCE OBJECTIVES_HNS_DEFENDER_SCORE
+LANG_ENGLISH "Survive by hiding from the hunters. First team to &&1 wins."
+
+REFERENCE OBJECTIVES_HNS_DEFENDER_HINT
+LANG_ENGLISH "Survive by hiding from the hunters."
+
+REFERENCE PROPS_WIN
+LANG_ENGLISH "Props win!"
+
+REFERENCE PROPS_WIN_MATCH
+LANG_ENGLISH "Props have won the match!"
+
+REFERENCE PROPS_WIN_ROUND
+LANG_ENGLISH "Props have won the round!"
+
+REFERENCE  PROPS_MISSION_ACCOMPLISHED
+LANG_ENGLISH  "Props mission accomplished"
+
+REFERENCE PROPS_ELIMINATED
+LANG_ENGLISH  "Props eliminated"
+
+REFERENCE PROPS_FORFEITED
+LANG_ENGLISH "Props forfeited"
+
+REFERENCE PROPS_HIDING_TIME
+LANG_ENGLISH "Hunting starts in &&1"
+
+REFERENCE MAXIMUM_MORPHS_REACHED
+LANG_ENGLISH "You are allowed to morph only ^3&&1^7 times within the same round."
+
+REFERENCE PROPS_HINT_LINE1
+LANG_ENGLISH "Press ^3[{openscriptmenu modkeybind zoomin}]^7 and ^3[{openscriptmenu modkeybind zoomout}]^7 to rotate the prop model."
+
+REFERENCE PROPS_HINT_LINE2
+LANG_ENGLISH "Press ^3[{+attack}]^7 to align the prop model with your view."
+
+REFERENCE PROPS_HINT_LINE3
+LANG_ENGLISH "Press ^3[{+melee}]^7 to quickly select a new prop model."
+
+REFERENCE PROPS_HINT_LINE4
+LANG_ENGLISH "Remember to go ^3Prone^7 and ^3Crouch^7 to reduce your hit area."
+
+REFERENCE PROPS_HINT_LINE5
+LANG_ENGLISH "Remember that you can throw back enemy grenades!"
+
+REFERENCE HUMANS_HINT_LINE1
+LANG_ENGLISH "It's best if you use the ^3Bandolier^7 perk to have enough ammo."
+
+REFERENCE HUMANS_HINT_LINE2
+LANG_ENGLISH "Remember that Props come in all sizes and shapes and they are very sneaky!"
+
+REFERENCE HUMANS_HINT_LINE3
+LANG_ENGLISH "Be careful! Props can throw back your grenades so stay alert."
+
+
+//******************************************************************************
+// maps/mp/gametypes/lms.gsc
+//******************************************************************************
+REFERENCE LASTMAN
+LANG_RUSSIAN "Выживший в бою"
+
+REFERENCE OBJECTIVES_LMS
+LANG_RUSSIAN "Убейте остальных игроков."
+
+REFERENCE OBJECTIVES_LMS_SCORE
+LANG_RUSSIAN "Убейте остальных игроков. Первый набравший &&1 - побеждает."
+
+REFERENCE OBJECTIVES_LMS_HINT
+LANG_RUSSIAN "Убейте остальных игроков."
+
+
+//******************************************************************************
+// maps/mp/gametypes/lts.gsc
+//******************************************************************************
+REFERENCE LASTTEAM
+LANG_RUSSIAN "Выжившая команда"
+
+REFERENCE OBJECTIVES_LTS
+LANG_RUSSIAN "Убейте всех игроков другой команды."
+
+REFERENCE OBJECTIVES_LTS_SCORE
+LANG_RUSSIAN "Убейте всех игроков другой команды. Команда, набравшая &&1 побеждает."
+
+REFERENCE OBJECTIVES_LTS_HINT
+LANG_RUSSIAN "Убейте всех игроков другой команды."
+
+
+//******************************************************************************
+// maps/mp/gametypes/oitc.gsc
+//******************************************************************************
+REFERENCE ONEINTHECHAMBER
+LANG_RUSSIAN "Каждый за себя"
+
+REFERENCE OBJECTIVES_ONEINTHECHAMBER
+LANG_RUSSIAN "Уничтожьте других игроков"
+
+REFERENCE OBJECTIVES_ONEINTHECHAMBER_SCORE
+LANG_RUSSIAN "Уничтожьте других игроков. Выигрывает первый набравший &&1 очков."
+
+REFERENCE OBJECTIVES_ONEINTHECHAMBER_HINT
+LANG_RUSSIAN "Уничтожайте всех других игроков"
+
+REFERENCE UAV_ON
+LANG_ENGLISH "UAV Activated Permanently"
+
+
+//******************************************************************************
+// maps/mp/gametypes/re.gsc
+//******************************************************************************
+REFERENCE RETRIEVAL
+LANG_RUSSIAN "Шпионаж"
+
+REFERENCE OBJECTIVES_RE_ATTACKER
+LANG_RUSSIAN "Необходимо добыть документы."
+
+REFERENCE OBJECTIVES_RE_ATTACKER_SCORE
+LANG_RUSSIAN "Необходимо добыть у врага Список агентов и Ключ шифрования. Очки для победы: &&1."
+
+REFERENCE OBJECTIVES_RE_ATTACKER_HINT
+LANG_RUSSIAN "Заберите у врага Список агентов и Ключ шифрования."
+
+REFERENCE OBJECTIVES_RE_DEFENDER
+LANG_RUSSIAN "Защитите Список агентов и Ключ шифрования от врага."
+
+REFERENCE OBJECTIVES_RE_DEFENDER_SCORE
+LANG_RUSSIAN "Защитите Список агентов и Ключ шифрования от вражеских лазутчиков. Очки для победы: &&1."
+
+REFERENCE OBJECTIVES_RE_DEFENDER_HINT
+LANG_RUSSIAN "Защищайте Секретные документы."
+
+REFERENCE RE_OBJECTIVE_A
+LANG_RUSSIAN "Ключ шифрования"
+
+REFERENCE RE_OBJECTIVE_B
+LANG_RUSSIAN "Список агентов"
+
+REFERENCE RE_TAKEN
+LANG_RUSSIAN "^3&&1^7 захватил ^3&&2^7."
+
+REFERENCE RE_DROPPED
+LANG_RUSSIAN "^3&&1^7 утерян."
+
+REFERENCE RE_DROPPED_BY
+LANG_RUSSIAN "^3&&1^7 потерял ^3&&2^7."
+
+REFERENCE RE_RETURNED
+LANG_RUSSIAN "^3&&1^7 вернули на место."
+
+REFERENCE RE_RETRIEVED
+LANG_RUSSIAN "^3&&1^7 удалось добыть ^3&&2^7."
+
+REFERENCE RE_ONE_RETRIEVED
+LANG_RUSSIAN "Секретный документ похищен."
+
+REFERENCE RE_ALL_RETRIEVED
+LANG_RUSSIAN "Все Секретные документы похищены."
+
+
+//******************************************************************************
+// maps/mp/gametypes/ss.gsc
+//******************************************************************************
+REFERENCE SHARPSHOOTER
+LANG_RUSSIAN "Меткий стрелок"
+
+REFERENCE OBJECTIVES_SHARPSHOOTER
+LANG_RUSSIAN "Зарабатывайте очки уничтожая других игроков."
+
+REFERENCE OBJECTIVES_SHARPSHOOTER_SCORE
+LANG_RUSSIAN "Зарабатывайте очки уничтожая других игроков. Выигрывает игрок набравший &&1 очков."
+
+REFERENCE OBJECTIVES_SHARPSHOOTER_HINT
+LANG_RUSSIAN "Уничтожьте всех других игроков."
+
+REFERENCE SHARPSHOOTER_CLYCLING_IN
+LANG_RUSSIAN "Смена оружия через &&1"
+
+
+//******************************************************************************
+// maps/mp/gametypes/vg.gsc
+//******************************************************************************
+REFERENCE VISUAL_GUIDE
+LANG_RUSSIAN "Редактор"
+
+REFERENCE VISUAL_GUIDE_CAPS
+LANG_RUSSIAN "РЕДАКТОР"
+
+
+//******************************************************************************
+// maps/mp/gametypes/_globallogic.gsc
+//******************************************************************************
+REFERENCE JOINED_TEAM
+LANG_RUSSIAN "Игрок ^3&&1^7 присоединился к команде ^3&&2^7"
+
+REFERENCE LAST_ROUND
+LANG_RUSSIAN "Это последний раунд!"
+
+REFERENCE MATCH_RESUMING_IN
+LANG_RUSSIAN "Игра продолжится через:"
+
+
+//******************************************************************************
+// maps/mp/gametypes/_hardpoints.gsc
+//******************************************************************************
+REFERENCE AIRSTRIKE_AVAILABLEIN
+LANG_RUSSIAN "Авиаудар будет доступен через &&1 секунд."
+
+REFERENCE HELICOPTER_AVAILABLEIN
+LANG_RUSSIAN "Вертолет будет доступен через &&1 секунд."
+
+REFERENCE KILLS_N
+LANG_RUSSIAN "&&1 Фраг!"
+
+REFERENCE REMINDER
+LANG_RUSSIAN "Внимание..."
+
+
+//******************************************************************************
+// mp/rankTable.csv
+//******************************************************************************
+REFERENCE RANK_PRESTIGE1
+LANG_RUSSIAN "Prestige MGS."
+
+REFERENCE RANK_PRESTIGE2
+LANG_RUSSIAN "Prestige CSM."
+
+REFERENCE RANK_PRESTIGE3
+LANG_RUSSIAN "Prestige SMOTA."
+
+REFERENCE RANK_PRESTIGE4
+LANG_RUSSIAN "Prestige CWO."
+
+REFERENCE RANK_PRESTIGE5
+LANG_RUSSIAN "Prestige Lt."
+
+REFERENCE RANK_PRESTIGE6
+LANG_RUSSIAN "Prestige Maj."
+
+REFERENCE RANK_PRESTIGE7
+LANG_RUSSIAN "Prestige Col."
+
+REFERENCE RANK_PRESTIGE8
+LANG_RUSSIAN "Prestige CrSM."
+
+REFERENCE RANK_PRESTIGE9
+LANG_RUSSIAN "Prestige GOTA."
+
+REFERENCE RANK_PRESTIGE10
+LANG_RUSSIAN "Prestige SC."
+
+REFERENCE RANK_PRESTIGE1_FULL
+LANG_RUSSIAN "Prestige Master Gny. Sergeant"
+
+REFERENCE RANK_PRESTIGE2_FULL
+LANG_RUSSIAN "Prestige Command Sergeant Major"
+
+REFERENCE RANK_PRESTIGE3_FULL
+LANG_RUSSIAN "Prestige S.M.O.T.A."
+
+REFERENCE RANK_PRESTIGE4_FULL
+LANG_RUSSIAN "Prestige C.W.O."
+
+REFERENCE RANK_PRESTIGE5_FULL
+LANG_RUSSIAN "Prestige Lieutenant"
+
+REFERENCE RANK_PRESTIGE6_FULL
+LANG_RUSSIAN "Prestige Major"
+
+REFERENCE RANK_PRESTIGE7_FULL
+LANG_RUSSIAN "Prestige Colonel"
+
+REFERENCE RANK_PRESTIGE8_FULL
+LANG_RUSSIAN "Prestige C.S.M."
+
+REFERENCE RANK_PRESTIGE9_FULL
+LANG_RUSSIAN "Prestige G.O.T.A."
+
+REFERENCE RANK_PRESTIGE10_FULL
+LANG_RUSSIAN "Prestige Supreme Commander"
+
+
+//******************************************************************************
+// openwarfare/_advancedacp.gsc
+//******************************************************************************
+REFERENCE	AACP_TITLE
+LANG_RUSSIAN "Администрирование сервера"
+
+REFERENCE	AACP_MAP_CONTROL
+LANG_RUSSIAN "^3Управление картами"
+
+REFERENCE	AACP_MAP_LOAD
+LANG_RUSSIAN "Загрузить карту/режим игры"
+
+REFERENCE	AACP_SET_NEXT
+LANG_RUSSIAN "Установить как следующую карту/режим игры"
+
+REFERENCE	AACP_MAP_END
+LANG_RUSSIAN "Закончить игру на текущей карте"
+
+REFERENCE	AACP_MAP_FASTRESTART
+LANG_RUSSIAN "Перезапуск карты"
+
+REFERENCE	AACP_MAP_RESTART
+LANG_RUSSIAN "Начать текущую карту заново"
+
+REFERENCE	AACP_MAP_NEXT
+LANG_RUSSIAN "Перейти на следующую карту"
+
+REFERENCE	AACP_RULESET_CONTROL
+LANG_RUSSIAN "^3Управление правилами игры"
+
+REFERENCE	AACP_RULESET_LOAD
+LANG_RUSSIAN "Загрузить правила игры"
+
+REFERENCE	AACP_NORULESET
+LANG_RUSSIAN "^1<Правила игры не активированы>"
+
+REFERENCE	AACP_PLAYER_CONTROL
+LANG_RUSSIAN "^3Администрирование"
+
+REFERENCE AACP_PLAYER_RETURNSPAWN
+LANG_RUSSIAN "Вернуть игрока на точку возрождения"
+
+REFERENCE AACP_PLAYER_RETURNED
+LANG_RUSSIAN "^3Вас вернули на вашу последнюю точку возрождения!"
+
+REFERENCE AACP_PLAYER_POINTOUT
+LANG_RUSSIAN "Выделить игрока"
+
+REFERENCE	AACP_PLAYER_SHOCK
+LANG_RUSSIAN "Оглушить игрока"
+
+REFERENCE	AACP_PLAYER_EXPLODE
+LANG_RUSSIAN "Взорвать игрока"
+
+REFERENCE	AACP_PLAYER_SWITCH_SPECTATOR
+LANG_RUSSIAN "Переключить игрока в наблюдатели"
+
+REFERENCE	AACP_PLAYER_SWITCH_TEAM
+LANG_RUSSIAN "Перевести игрока в другую команду"
+
+REFERENCE	AACP_PLAYER_REDIRECT
+LANG_RUSSIAN "Перенаправить игрока на другой сервер"
+
+REFERENCE	AACP_PLAYER_KILL
+LANG_RUSSIAN "Убить игрока"
+
+REFERENCE	AACP_PLAYER_KICK
+LANG_RUSSIAN "Удалить игрока из игры"
+
+REFERENCE	AACP_PLAYER_BAN
+LANG_RUSSIAN "Забанить игрока"
+
+REFERENCE AACP_WARNING
+LANG_RUSSIAN "^1Предупреждение номер &&1 из &&2 прежде чем игрок будет удален из игры!"
+
+REFERENCE	AACP_NOTENABLED
+LANG_RUSSIAN "На данном сервере панель администрирования не подключена."
+
+REFERENCE	AACP_NOACCESS
+LANG_RUSSIAN "У вас нет права доступа к панели администрирования с GUID-а ^3&&1^7."
+
+REFERENCE	AACP_NOPLAYER
+LANG_RUSSIAN "^1<Защита игроков включена>"
+
+REFERENCE	AACP_YOU_TARGETED
+LANG_RUSSIAN "^1Вы назначены мишенью для всех!"
+
+REFERENCE	AACP_PLAYER_TARGETED
+LANG_RUSSIAN "^1Игрок ^7&&1^1 стал мишенью для всех!"
+
+
+//******************************************************************************
+// openwarfare/_advancedmvs.gsc
+//******************************************************************************
+REFERENCE	AMVS_TITLE
+LANG_RUSSIAN "Голосование"
+
+REFERENCE	AMVS_GAMETYPE
+LANG_RUSSIAN "Голосование за смену режима"
+
+REFERENCE	AMVS_MAP
+LANG_RUSSIAN "Голосование за смену карты"
+
+REFERENCE	AMVS_GAMETYPE_WINNER
+LANG_RUSSIAN "Следующим режимом будет..."
+
+REFERENCE	AMVS_MAP_WINNER
+LANG_RUSSIAN "Следующей картой будет..."
+
+REFERENCE	AMVS_TEMPORARY_RESULTS
+LANG_RUSSIAN "Временные результаты голосования"
+
+REFERENCE	AMVS_NO_VOTES
+LANG_RUSSIAN "Ожидание результатов голосования..."
+
+REFERENCE	AMVS_LOADING_MAP
+LANG_RUSSIAN "Загрузка режима/Карты Через..."
+
+REFERENCE	AMVS_LEAVE_GAME
+LANG_RUSSIAN "^7Нажмите ^3ESC ^7чтобы покинуть игру"
+
+REFERENCE AMVS_CASTVOTE
+LANG_RUSSIAN "Голосовать"
+
+
+//******************************************************************************
+// openwarfare/_anticamping.gsc
+//******************************************************************************
+REFERENCE MOVE_NEW_POSITION
+LANG_RUSSIAN "Боец, меняй дислокацию!!"
+
+
+//******************************************************************************
+// openwarfare/_bigbrotherbot.gsc
+//******************************************************************************
+REFERENCE B3_DEATHDOWN
+LANG_RUSSIAN "^7Администратор уменьшил количество смертей для ^3&&1^7 на ^3&&2^7."
+
+REFERENCE B3_DEATHUP
+LANG_RUSSIAN "^7Администратор увеличил количество смертей для ^3&&1^7 на ^3&&2^7."
+
+REFERENCE B3_PUNISHED
+LANG_RUSSIAN "^7Вы получили предупреждение от администратора сервера!"
+
+REFERENCE B3_SCOREDOWN
+LANG_RUSSIAN "^7Администратор уменьшил счет для ^3&&1^7 на ^3&&2^7 очков."
+
+REFERENCE B3_SCOREUP
+LANG_RUSSIAN "^7Администратор увеличил счет для ^3&&1^7 на ^3&&2^7 очков."
+
+REFERENCE B3_TEAMSWITCH
+LANG_RUSSIAN "^7Администратор сервера перевел вас в другую команду."
+
+
+//******************************************************************************
+// openwarfare/_capeditor.gsc
+//******************************************************************************
+
+REFERENCE CAP_OPEN
+LANG_RUSSIAN "Нажмите ^3[Использовать] ^7чтобы открыть\n^3Настройки Внешности Игрока"
+
+REFERENCE CAP_CYCLE_AND_CLOSE
+LANG_RUSSIAN "Нажмите ^3[Использовать] ^7чтобы пролистать варианты Внешности\nНажмите ^3[Удар Ножом] ^7чтобы закрыть Настройки"
+
+REFERENCE CAP_INITIALIZING
+LANG_RUSSIAN "Загрузка ^7интерфейса ^3Настройка внешности"
+
+REFERENCE CAP_SECONDS_LEFT
+LANG_RUSSIAN "(осталось времени)"
+
+
+//******************************************************************************
+// openwarfare/_damageeffect.gsc
+//******************************************************************************
+REFERENCE DE_BROKEN_ANKLE
+LANG_RUSSIAN "^1Увас сломана нога!"
+
+
+//******************************************************************************
+// openwarfare/_dvarmonitor.gsc
+//******************************************************************************
+REFERENCE DVAR_MONITOR_NAME
+LANG_RUSSIAN "В переменную ^2&&1^7 были внесены изменения:"
+
+REFERENCE DVAR_MONITOR_OLD_NEW
+LANG_RUSSIAN "исходное значение: ^3&&1^7. Новое значение: ^3&&2^7."
+
+
+//******************************************************************************
+// openwarfare/_disarmexplosives.gsc
+//******************************************************************************
+REFERENCE EXPLOSIVE_DISARMED
+LANG_RUSSIAN "Взрывчатка обезврежена."
+
+REFERENCE EXPLOSIVE_DISARMING
+LANG_RUSSIAN "обезвреживание взрывчатки."
+
+REFERENCE EXPLOSIVE_RETRIEVED
+LANG_RUSSIAN "Взрывчатка подобрана."
+
+REFERENCE EXPLOSIVE_RETRIEVING
+LANG_RUSSIAN "Подбор взрывчатки"
+
+
+//******************************************************************************
+// openwarfare/_extendedobituaries.gsc
+//******************************************************************************
+REFERENCE EXTENDED_OBITUARY
+LANG_RUSSIAN "^2&&1^7 Убил ^1&&2^7. Область поражения: &&3. Оружие: &&4. Расстояние: &&5."
+
+REFERENCE EXTENDED_OBITUARY_KILLEDBY_WEAPON
+LANG_RUSSIAN "Вас убил: ^3&&1^7. Оружие: ^3&&2^7."
+
+REFERENCE EXTENDED_OBITUARY_LOCATION_DISTANCE
+LANG_RUSSIAN "Область поражения: ^3&&1^7. Расстояние: ^3&&2^7."
+
+
+//******************************************************************************
+// openwarfare/_guidcs.gsc
+//******************************************************************************
+REFERENCE GUIDCS_GUID_NOT_ALLOWED
+LANG_RUSSIAN "Ваш GUID недопустим на этом сервере..."
+
+REFERENCE GUIDCS_INFORMATION
+LANG_RUSSIAN "Подробности можно узнать здесь:"
+
+REFERENCE GUIDCS_CONTACT
+LANG_RUSSIAN "&&1"
+
+
+//******************************************************************************
+// openwarfare/_healthsystem.gsc
+//******************************************************************************
+REFERENCE BLEEDING_NOBANDAGES
+LANG_RUSSIAN "У вас нет бинтов чтобы замотать раны."
+
+REFERENCE MEDIC_BANDAGE_SUCCESS
+LANG_RUSSIAN "Перевязка удалась."
+
+REFERENCE MEDIC_BANDAGE_UNSUCCESSFUL
+LANG_RUSSIAN "Перевязка не удалась."
+
+REFERENCE MEDIC_SELF_BANDAGE
+LANG_RUSSIAN "Вы первязываете ^1&&1^7."
+
+REFERENCE MEDIC_TEAMMATE_BANDAGE
+LANG_RUSSIAN "Вас перевязывает ^1&&1^7."
+
+REFERENCE MEDIC_SELF_HEAL
+LANG_RUSSIAN "Вы лечите ^1&&1^7."
+
+REFERENCE MEDIC_TEAMMATE_HEAL
+LANG_RUSSIAN "Вас лечит ^1&&1^7."
+
+REFERENCE MEDIC_HEALING_FULL
+LANG_RUSSIAN "Перевязка закончена. Бинты использованы полностью."
+
+REFERENCE MEDIC_HEALING_PARTIAL
+LANG_RUSSIAN "Перевязка закончена. Бинты частично израсходованы."
+
+REFERENCE TEAMMATE_BANDAGE
+LANG_RUSSIAN "Член вашей команды производит перебинтовку. Подождите, пока он закончит."
+
+REFERENCE TEAMMATE_HEAL
+LANG_RUSSIAN "Член вашей команды производит лечение. Подождите, пока он закончит."
+
+
+//******************************************************************************
+// openwarfare/_idlemonitor.gsc
+//******************************************************************************
+REFERENCE KICK_IDLE
+LANG_RUSSIAN "Кик за отсутствие игровой активности:"
+
+REFERENCE SWITCH_TO_SPECTATE
+LANG_RUSSIAN "Переключение в режим наблюдателя:"
+
+
+//******************************************************************************
+// openwarfare/_martyrdom.gsc
+//******************************************************************************
+REFERENCE NOFRAGS_FOR_MARTYRDOM
+LANG_RUSSIAN "У вас нет осколочных гранат для перка Мученик."
+
+
+//******************************************************************************
+// openwarfare/_numlives.gsc
+//******************************************************************************
+REFERENCE LIVES_LEFT
+LANG_ENGLISH "You have ^3&&1^7 lives remaining..."
+
+REFERENCE LAST_LIFE
+LANG_ENGLISH "This is your last life!"
+
+
+//******************************************************************************
+// openwarfare/_objpoints.gsc
+//******************************************************************************
+REFERENCE QUICK_DEFUSE_1
+LANG_RUSSIAN "^1Быстрое разминирование: ^7Выбирайте между проводами, нажимая ^2[{+toggleads_throw}]^7"
+
+REFERENCE QUICK_DEFUSE_2
+LANG_RUSSIAN "Нажмите ^2[{+attack}]^7 для выбора нужного провода"
+
+REFERENCE RED_WIRE
+LANG_RUSSIAN "^1Красный провод"
+
+REFERENCE GREEN_WIRE
+LANG_RUSSIAN "^2Зеленый провод"
+
+REFERENCE YELLOW_WIRE
+LANG_RUSSIAN "^3Желтый провод"
+
+REFERENCE BLUE_WIRE
+LANG_RUSSIAN "^4Синий провод"
+
+REFERENCE EXPLOSIVES_DESTROYED
+LANG_RUSSIAN "Бомба уничтожена!"
+
+REFERENCE DESTROYING_EXPLOSIVES
+LANG_RUSSIAN "Уничтожение бомбы"
+
+REFERENCE DESTROY_EXPLOSIVES
+LANG_RUSSIAN "Вы можете уничтожить бомбу, удерживая ^2[{+melee}]^7"
+
+
+//******************************************************************************
+// openwarfare/_playerdvars.gsc
+//******************************************************************************
+REFERENCE PLAYER_GUID
+LANG_RUSSIAN "^7Ваш GUID - ^3&&1^7."
+
+REFERENCE ILLEGAL_USE_CLANTAGS
+LANG_RUSSIAN "Обнаружено неправомерное использование КланТэга!"
+
+REFERENCE REMOVE_ILLEGAL_CLANTAGS
+LANG_RUSSIAN "Уберите КланТэг и переподключитесь к серверу..."
+
+
+//******************************************************************************
+// openwarfare/_powerrank.gsc
+//******************************************************************************
+REFERENCE POWER_RANK_ATTACHMENTS
+LANG_RUSSIAN "Все оружейные дополнения открыты!"
+
+REFERENCE POWER_RANK_CAMOS
+LANG_RUSSIAN "Все камуфляжи оружия открыты!"
+
+REFERENCE POWER_RANKED
+LANG_RUSSIAN "Вы были повышены!"
+
+
+//******************************************************************************
+// openwarfare/_quickactions.gsc
+//******************************************************************************
+REFERENCE QUICKACTION_BANDAGE
+LANG_RUSSIAN "Забинтовать"
+
+REFERENCE QUICKACTION_ENDED
+LANG_RUSSIAN "^1****************"
+
+REFERENCE QUICKACTION_TEXT
+LANG_RUSSIAN "Быстрое действие &&1/&&2: ^3&&3"
+
+REFERENCE QUICKACTION_UNJAM
+LANG_RUSSIAN "Разблокировка заклинившего оружия"
+
+
+//******************************************************************************
+// openwarfare/_rangefinder.gsc
+//******************************************************************************
+REFERENCE RANGEFINDER_METERS
+LANG_RUSSIAN "&&1 м."
+
+REFERENCE RANGEFINDER_YARDS
+LANG_RUSSIAN "&&1 я."
+
+
+//******************************************************************************
+// openwarfare/_readyupperiod.gsc
+//******************************************************************************
+REFERENCE READYUP_ALL_PLAYERS_READY
+LANG_RUSSIAN "Все игроки готовы!"
+
+REFERENCE READYUP_MOD_CHECKSUMS
+LANG_RUSSIAN "^3Проверка контрольных сумм^7: &&1."
+
+REFERENCE READYUP_NOPASSWORD
+LANG_RUSSIAN "Внимание! Пароль на сервер не установлен!"
+
+REFERENCE READYUP_NOT_READY
+LANG_RUSSIAN "Не готов"
+
+REFERENCE READYUP_PERIOD
+LANG_RUSSIAN "Раунд готовности к бою"
+
+REFERENCE READYUP_PERIOD_ROUND
+LANG_RUSSIAN "Разогревочный раунд"
+
+REFERENCE READYUP_PRESS_TO_TOGGLE
+LANG_RUSSIAN "Нажмите^3 [{+activate}] ^7чтобы сообщить о готовности"
+
+REFERENCE READYUP_READY
+LANG_RUSSIAN "Готов"
+
+REFERENCE READYUP_RECORD_REMINDER
+LANG_RUSSIAN "^3Не забудьте /RECORD матч"
+
+REFERENCE READYUP_WAITING_FOR_MORE_PLAYERS
+LANG_RUSSIAN "Ожидание других игроков..."
+
+
+//******************************************************************************
+// openwarfare/_reservedslots.gsc
+//******************************************************************************
+REFERENCE RESERVEDSLOTS_DISCONNECTED
+LANG_RUSSIAN "Игрок ^3&&1^7 был отключен чтобы освободить место для членов клана."
+
+REFERENCE RESERVEDSLOTS_MAKEROOM_DISCONNECT
+LANG_RUSSIAN "^3Вас отключили чтобы освободить место для членов клана."
+
+REFERENCE RESERVEDSLOTS_MAKEROOM_REDIRECT
+LANG_RUSSIAN "^3Вас перенаправили на другой сервер чтобы освободить место для членов клана."
+
+REFERENCE RESERVEDSLOTS_REDIRECTED
+LANG_RUSSIAN "Игрок ^3&&1^7 был переадресован на ^2&&2^7 чтобы освободить место на сервер для членов клана (press ^3[{openScriptMenu modkeybind redirect}]^7 to follow)."
+
+REFERENCE RESERVEDSLOTS_MANUAL_REDIRECT
+LANG_RUSSIAN "Игрок ^3&&1^7 был переадресован на ^2&&2^7 (press ^3[{openscriptmenu modkeybind redirect}]^7 to follow)."
+
+REFERENCE RESERVEDSLOTS_TRYAGAIN
+LANG_RUSSIAN "^3Попробуйте подключиться еще раз через 2-3 минуты..."
+
+
+//******************************************************************************
+// openwarfare/_rotateifempty.gsc
+//******************************************************************************
+REFERENCE EMPTY_ROTATE
+LANG_RUSSIAN "Карта сменится через &&1 секунд..."
+
+
+//******************************************************************************
+// openwarfare/_rsmonitor.gsc
+//******************************************************************************
+REFERENCE RULESET_DISABLED
+LANG_RUSSIAN "Правила отключены. Перезапуск карты..."
+
+REFERENCE RULESET_NOT_VALID
+LANG_RUSSIAN "Правила ^3&&1^7 недействителены или не поддерживает данный режим игры."
+
+REFERENCE RULESET_VALID
+LANG_RUSSIAN "Загружены новые ^3&&1^7 правила. Перезапуск карты..."
+
+
+//******************************************************************************
+// openwarfare/_servermessages.gsc
+//******************************************************************************
+REFERENCE NEXT_MAP
+LANG_RUSSIAN "^3&&1^7: &&2 (&&3)"
+
+
+//******************************************************************************
+// openwarfare/_strategyperiod.gsc
+//******************************************************************************
+REFERENCE STRATEGY_BYPASSED
+LANG_RUSSIAN "Пропущено"
+
+REFERENCE STRATEGY_GET_READY
+LANG_RUSSIAN "Приготовьтесь!"
+
+REFERENCE STRATEGY_PERIOD_FINISHED
+LANG_RUSSIAN "Стратегическая пауза окончена."
+
+REFERENCE STRATEGY_PERIOD_STARTED
+LANG_RUSSIAN "Стратегическая пауза."
+
+REFERENCE PRESS_TO_BYPASS
+LANG_RUSSIAN "Нажмите^3 [{+activate}] ^7чтобы пропустить"
+
+
+//******************************************************************************
+// openwarfare/_timeout.gsc
+//******************************************************************************
+REFERENCE TIMEOUT_CALLED
+LANG_RUSSIAN "Вызван таймаут!"
+
+REFERENCE TIMEOUTS_LEFT
+LANG_RUSSIAN "^3&&1^7 взял таймаут. У вашей команды осталось ^3&&2^7 таймаутов"
+
+REFERENCE TIMEOUTS_NOMORE
+LANG_RUSSIAN "^3&&1^7 попытался взять таймаут но у команды их больше нет"
+
+
+//******************************************************************************
+// openwarfare/_tkmonitor.gsc
+//******************************************************************************
+REFERENCE TK_WATCHFIRE
+LANG_RUSSIAN "Боец, не стреляй по своим!"
+
+
+//******************************************************************************
+// openwarfare/_utils.gsc
+//******************************************************************************
+REFERENCE AIRSTRIKE
+LANG_RUSSIAN "Авиаудар"
+
+REFERENCE BLOOD_LOSS
+LANG_RUSSIAN "Потеря крови"
+
+REFERENCE BOMB
+LANG_RUSSIAN "Взрывпакет"
+
+REFERENCE DESTRUCTIBLE_CAR
+LANG_RUSSIAN "Взорвавшаяся машина"
+
+REFERENCE EXPLODING_BARREL
+LANG_RUSSIAN "Взорвавшаяся бочка"
+
+REFERENCE KNIFE
+LANG_RUSSIAN "Нож"
+
+REFERENCE HEAD
+LANG_RUSSIAN "Голова"
+
+REFERENCE HELICOPTER
+LANG_RUSSIAN "Вертолет"
+
+REFERENCE LEFT_ARM
+LANG_RUSSIAN "Левая рука"
+
+REFERENCE LEFT_LEG
+LANG_RUSSIAN "Левая нога"
+
+REFERENCE LOWER_TORSO
+LANG_RUSSIAN "Пах"
+
+REFERENCE MASSIVE_INJURIES
+LANG_RUSSIAN "Обширные повреждения"
+
+REFERENCE NECK
+LANG_RUSSIAN "Шея"
+
+REFERENCE RIGHT_ARM
+LANG_RUSSIAN "Правая рука"
+
+REFERENCE RIGHT_LEG
+LANG_RUSSIAN "Правая нога"
+
+REFERENCE UPPER_TORSO
+LANG_RUSSIAN "Торс"
+
+
+//******************************************************************************
+// openwarfare/_visualmover.gsc
+//******************************************************************************
+REFERENCE MOVER_CMD
+LANG_RUSSIAN "Действие:"
+
+REFERENCE MOVER_CMD_CAT_NEXT
+LANG_RUSSIAN "След.Категория"
+
+REFERENCE MOVER_CMD_CAT_PREV
+LANG_RUSSIAN "Пред.Категория"
+
+REFERENCE MOVER_CMD_ITEM_NEXT
+LANG_RUSSIAN "След.Объект"
+
+REFERENCE MOVER_CMD_ITEM_PREV
+LANG_RUSSIAN "Пред.Объект"
+
+REFERENCE MOVER_CMD_SHOW
+LANG_RUSSIAN "Показать Объект"
+
+REFERENCE MOVER_CMD_RESET_ITEM
+LANG_RUSSIAN "Отменить перемещение"
+
+REFERENCE MOVER_CMD_RESET_ALL
+LANG_RUSSIAN "Отменить все перемещения"
+
+REFERENCE MOVER_CMD_WRITE_ITEM
+LANG_RUSSIAN "Сохранить Объект в Log"
+
+REFERENCE MOVER_CMD_WRITE_ALL
+LANG_RUSSIAN "Сохранить все перемещения в Log"
+
+REFERENCE MOVER_CMD_STOCK_ITEM
+LANG_RUSSIAN "Записать первоначальное положение"
+
+REFERENCE MOVER_CMD_STOCK_ALL
+LANG_RUSSIAN "Записать первоначальное положение всех объектов"
+
+REFERENCE MOVER_CAT
+LANG_RUSSIAN "Категория:"
+
+REFERENCE MOVER_CAT_ALLIES_START
+LANG_RUSSIAN "Союзники - осн.точки возрождения"
+
+REFERENCE MOVER_CAT_AXIS_START
+LANG_RUSSIAN "Оппозиция - осн.точки возрождения"
+
+REFERENCE MOVER_CAT_ALLIES
+LANG_RUSSIAN "Союзники - доп.точки возрождения"
+
+REFERENCE MOVER_CAT_AXIS
+LANG_RUSSIAN "Оппозиция - доп.точки возрождения"
+
+REFERENCE MOVER_CAT_ATTACKER
+LANG_RUSSIAN "Возрождение Атаки"
+
+REFERENCE MOVER_CAT_DEFENDER
+LANG_RUSSIAN "Возрождение Защиты"
+
+REFERENCE MOVER_CAT_NEUTRAL
+LANG_RUSSIAN "Нейтральные точки"
+
+REFERENCE MOVER_CAT_FLAG
+LANG_RUSSIAN "Флаги"
+
+REFERENCE MOVER_CAT_RADIO
+LANG_RUSSIAN "Командные очки"
+
+REFERENCE MOVER_CAT_EXPLOSIVE
+LANG_RUSSIAN "Взрывчатка"
+
+REFERENCE MOVER_CAT_EXTRACT
+LANG_RUSSIAN "Зона эвакуации"
+
+REFERENCE MOVER_CAT_OBJECTIVE
+LANG_RUSSIAN "Цели"
+
+REFERENCE MOVER_ITEM_WRITE
+LANG_RUSSIAN "Объект записан в ^1games_mp.log^7"
+
+REFERENCE MOVER_ALL_WRITE
+LANG_RUSSIAN "Все объекты записаны в ^1games_mp.log^7"
+
+REFERENCE MOVER_HELP
+LANG_RUSSIAN "Нажмите ^1[[{+activate}]] ^7для перемещения между командами.\nНажмите ^1[[{+melee}]] ^7для запуска команды.\nНажмите ^1[[{+attack}]] ^7для активации выбранного объекта"
+
+
+//******************************************************************************
+// ui_mp/connect.menu
+//******************************************************************************
+REFERENCE BROUGHT2UBY
+LANG_RUSSIAN "Представлен вам..."
+
+REFERENCE SERVERPOWEREDBY
+LANG_RUSSIAN "Сервер работает на..."
+
+
+//******************************************************************************
+// ui_mp/controls_multi.menu
+//******************************************************************************
+REFERENCE	AACP_MENU
+LANG_RUSSIAN	"Админ-Панель"
+
+REFERENCE ATTACH_DETACH
+LANG_RUSSIAN "Сн/Уст. Модуль"
+
+REFERENCE FIRING_MODE
+LANG_RUSSIAN "Режим стрельбы"
+
+REFERENCE BANDAGE
+LANG_RUSSIAN "Бинты"
+
+REFERENCE BINOCULARS
+LANG_RUSSIAN "Бинокль"
+
+REFERENCE CYCLE_FPSLAG
+LANG_RUSSIAN "FPS/Lagometer"
+
+REFERENCE DROP_OBJECT
+LANG_RUSSIAN "Бросить Предмет"
+
+REFERENCE DROP_WEAPON
+LANG_RUSSIAN "Бросить Оружие"
+
+REFERENCE REDIRECT
+LANG_RUSSIAN "Перенаправление"
+
+REFERENCE SPEC_VIEWMODE
+LANG_RUSSIAN "Вид наблюдателя"
+
+REFERENCE TIMEOUT_CALL
+LANG_RUSSIAN "Вызвать таймаут"
+
+REFERENCE UNJAM_WEAPON
+LANG_RUSSIAN "Разблок. Оружие"
+
+REFERENCE ZOOM_IN
+LANG_RUSSIAN "Приблизить"
+
+REFERENCE ZOOM_OUT
+LANG_RUSSIAN "Удалить"
+
+REFERENCE STATS_TOGGLE
+LANG_RUSSIAN "Вкл. Статистику"
+
+
+//******************************************************************************
+// ui_mp/hud.menu
+//******************************************************************************
+REFERENCE LB_ROUND
+LANG_RUSSIAN " - Раунд #&&1"
+
+REFERENCE LB_NO_PLAYERS
+LANG_RUSSIAN "Ожидание Игроков"
+
+REFERENCE STATS_ACCURACY
+LANG_RUSSIAN "Точность"
+
+REFERENCE STATS_KDRATIO
+LANG_RUSSIAN "Убийства/Смерти"
+
+REFERENCE STATS_KILLS
+LANG_RUSSIAN "Всего убийств"
+
+REFERENCE STATS_TEAMKILLS
+LANG_RUSSIAN "Убил своих"
+
+REFERENCE STATS_CKILLSTREAK
+LANG_RUSSIAN "Убийств подряд"
+
+REFERENCE STATS_HKILLSTREAK
+LANG_RUSSIAN "Максимум убийств подряд"
+
+REFERENCE STATS_LONGEST
+LANG_RUSSIAN "Самое Дальнее"
+
+REFERENCE STATS_MELEE
+LANG_RUSSIAN "Ножи"
+
+REFERENCE STATS_HEADSHOTS
+LANG_RUSSIAN "В голову"
+
+REFERENCE STATS_LONGESTHS
+LANG_RUSSIAN "Самый дальний в голову"
+
+REFERENCE STATS_DEATHS
+LANG_RUSSIAN "Всего смертей"
+
+REFERENCE STATS_SUICIDES
+LANG_RUSSIAN "Самоубийств"
+
+REFERENCE STATS_CDEATHSTREAK
+LANG_RUSSIAN "Смертей подряд"
+
+REFERENCE STATS_HDEATHSTREAK
+LANG_RUSSIAN "Максимум подряд"
+
+REFERENCE STATS_DISTANCE
+LANG_RUSSIAN "Пройдено"
+
+
+//******************************************************************************
+// ui_mp/scriptmenus/class.menu
+//******************************************************************************
+REFERENCE FAVORITE_ADD
+LANG_RUSSIAN "Добавить в Избранное"
+
+REFERENCE SERVER_INFORMATION
+LANG_RUSSIAN "Информация о Сервере"
+
+
+//******************************************************************************
+// ui_mp/scriptmenus/eog_statistics.menu
+//******************************************************************************
+REFERENCE EOG_KILLS
+LANG_RUSSIAN "Убийств"
+
+REFERENCE EOG_ACCURACY
+LANG_RUSSIAN "Точность"
+
+REFERENCE EOG_KILLSTREAK
+LANG_RUSSIAN "Убийств подряд"
+
+REFERENCE EOG_LONGESTKILL
+LANG_RUSSIAN "Самое дальнее"
+
+REFERENCE EOG_MELEEKILLS
+LANG_RUSSIAN "Ножом"
+
+REFERENCE EOG_HEADSHOTS
+LANG_RUSSIAN "В голову"
+
+REFERENCE EOG_LONGESTHEADSHOT
+LANG_RUSSIAN "Самое дальнее"
+
+REFERENCE EOG_HARDPOINTCALLED
+LANG_RUSSIAN "Вызвал"
+
+REFERENCE EOG_HARDPOINTKILLS
+LANG_RUSSIAN "Убийств"
+
+REFERENCE EOG_DEATHS
+LANG_RUSSIAN "Смертей"
+
+REFERENCE EOG_DEATHSTREAK
+LANG_RUSSIAN "Смертей подряд"
+
+REFERENCE EOG_TEAMKILLS
+LANG_RUSSIAN "Убил своих"
+
+REFERENCE EOG_BESTPLAYER
+LANG_RUSSIAN "Лучший игрок"
+
+REFERENCE EOG_WORSTPLAYER
+LANG_RUSSIAN "Неудачно сыграл"
+
+REFERENCE EOG_DISTANCE
+LANG_RUSSIAN "Макс.пройдено"
+
+
+//******************************************************************************
+// ui_mp/scriptmenus/ow_cac_editor.menu
+//******************************************************************************
+REFERENCE CAC_CAMO
+LANG_RUSSIAN "Камуфляж"
+
+REFERENCE CAC_CLASS
+LANG_RUSSIAN "Выбрать класс"
+
+REFERENCE CAC_PRIMARY_ATTACHMENT
+LANG_RUSSIAN "Модуль"
+
+REFERENCE CAC_SECONDARY_ATTACHMENT
+LANG_RUSSIAN "Модуль"
+
+REFERENCE CAC_SIDE_ARM_ATTACHMENT
+LANG_RUSSIAN "Для Пистолета"
+
+REFERENCE CAC_SUBMIT
+LANG_RUSSIAN "Подтвердить изменения"
+
+REFERENCE CAC_TITLE
+LANG_RUSSIAN "Редактор Классов"
+
+
+//******************************************************************************
+// ui_mp/scriptmenus/team_marinesopfor.menu
+//******************************************************************************
+REFERENCE BROADCASTER
+LANG_RUSSIAN "Коментатор"
+
+
+//******************************************************************************
+// ui_mp/scriptmenus/serverinfo.menu
+//******************************************************************************
+REFERENCE SERVER_INFO
+LANG_RUSSIAN "Информация"
+
+
+ENDMARKER

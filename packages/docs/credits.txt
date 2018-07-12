@@ -1,0 +1,73 @@
+THIS MATERIAL IS NOT MADE OR SUPPORTED BY ACTIVISION.
+
+ _____                  _    _             __
+|  _  |                | |  | |           / _|
+| | | |_ __   ___ _ __ | |  | | __ _ _ __| |_ __ _ _ __ ___
+| | | | '_ \ / _ \ '_ \| |/\| |/ _` | '__|  _/ _` | '__/ _ \
+\ \_/ / |_) |  __/ | | \  /\  / (_| | |  | || (_| | | |  __/
+ \___/| .__/ \___|_| |_|\/  \/ \__,_|_|  |_| \__,_|_|  \___|
+      | |               We don't make the game you play.
+      |_|                 We make the game you play BETTER.
+
+           Website: http://openwarfaremod.com/
+
+
+OpenWarfare team members (in alphabetical order):
+* Caipira (Portuguese translations)
+* Exte (Spanish translations)
+* foxteamfr (French translations)
+* Kuklovod (Russian translations)
+* 4morirabbit (Italian translations)
+* Peluski (Developer)
+* Shadowlord (German translations)
+* t3chn0r (Developer)
+
+OpenWarfare former team members (in alphabetical order). A special mention goes to these
+people that were part of the OpenWarfare team and did major contributions to the project.
+* BionicNipple (Developer)
+* Jinxter (Developer and German translations)
+* Lepko (Developer)
+* 0ddball (French translations)
+* Spacepig (Developer)
+* Trax (French translations)
+
+
+We would like to thank the following people who have contributed to the project without 
+being part of the OpenWarfare team (in alphabetical order):
+- AbneyPark and "unknown" for publishing their Sniper Zoom mod.
+- AintNoMeInTeam for releasing the raw .CSV files to the COD community.
+- Bravo17 for finding the error causing the visual guide not to work properly on map_restart.
+- BRM (Brothers Realism Mod) for the inspiration for our own multiple map configurations
+  for the visual mover.
+- Buster from "The Company Hub" for letting us include his weapon tweaks.
+- Chandler for help finding the stock weapon files and tips on what needs to be fixed in them.
+- CoDEmanX for providing us with all the maps\mp\createfx stock map files that are missing 
+  in the mod tools.
+- Crosstrain for his role as devil's advocate when creating the visual mover/moverguide
+  and for testing each implementation for any bugs.
+- Dan2k3k4 for his contribution on different aspects of the mod as well as his friendship.
+- Dan2k3k4 for the statsTable.csv fix that fixes the Killhouse problem.
+- DemonSeed for his healthpack glowing model.
+- 105HolyMoley for the extended smoke grenade effect file.
+- Insane for converting the SP model of Zakhaev to MP to be able to use it in Assassination.
+- KiLL3R for giving us his FreezeTag mod source code that we used to base our FreezeTag 
+  gametype implementation.
+- Marc for his tip on controlling the player stance from his mod ACE.
+- Novemberdobby for publishing a list of bones (tag names) to use with the attach() function 
+  and his invaluable help importing the health pack model from COD1 (YOU ARE A GENIOUS SIR!).
+- Number7 for his tip on how to disable the red dot blips via code.
+- Ravir for his original idea of supporting dvars based on gametype and map.
+- Ryan and Sparks from IW.com for all their support.
+- Wolfsbane and Slipstick for developing WRM mod for COD2.
+- Zeroy for his tip on reducing the material assets to prevent the "Exceeded limit of 2048 
+  'material' assets" error.
+- Last but not least, our great community that is always ready to help us test new features!
+
+We would also like to thank the following Websites (in alphabetical order):
+- CustomCOD - Call of Duty Mapping and Modding support! - http://www.customcod.com/
+- devianArt - Where ART meets application! - http://www.devianart.com/ -  http://vexingart.deviantart.com/
+- IconArchive - Great icons for Win, Max & Linux - http://www.iconarchive.com/
+
+
+Thank you all!
+The OpenWarfare Development Team

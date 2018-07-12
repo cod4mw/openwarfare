@@ -1,0 +1,159 @@
+//******************************************************************************
+//  _____                  _    _             __
+// |  _  |                | |  | |           / _|
+// | | | |_ __   ___ _ __ | |  | | __ _ _ __| |_ __ _ _ __ ___
+// | | | | '_ \ / _ \ '_ \| |/\| |/ _` | '__|  _/ _` | '__/ _ \
+// \ \_/ / |_) |  __/ | | \  /\  / (_| | |  | || (_| | | |  __/
+//  \___/| .__/ \___|_| |_|\/  \/ \__,_|_|  |_| \__,_|_|  \___|
+//       | |               We don't make the game you play.
+//       |_|                 We make the game you play BETTER.
+//
+//            Website: http://openwarfaremod.com/
+//******************************************************************************
+
+#include "ui/menudef.h"
+#include "ui_mp/common_macro.inc"
+
+#define CHOICE_SIZE_X			//150
+#define CHOICE_SIZE_Y			22
+
+#define CHOICE_X_START			0
+#define CHOICE_Y_START			34
+
+#define CHOICE_SEP_OFFSET_Y		-2
+
+#include "ui_mp/menustyle.inc"
+#include "ui/choices_setup_common.menu"
+
+#define MENU_LOCKED_COLOR		0.25 0.25 0.25 1
+
+#define ORIGIN_BUTTON_BACK			52 438
+#define ORIGIN_MENU_TREE			54 64
+#define ORIGIN_MENU_TITLE_MARINES	178 64
+#define ORIGIN_MENU_TITLE_OPFOR		170 64
+#define TREE_COLOR					1 1 1 0.5
+#define LABEL_TEXT_COLOR		0.7 0.75 0.75 1
+
+#define CHOICE_PROP( itemIndex ) \
+	CHOICE_BUTTON_BG( itemIndex, when (tableLookup( "mp/propsTable.csv", 0, dvarString( "mapname" ) + "_"+itemIndex, 1 ) != "") ) \
+	CHOICE_HIGHLIGHT( itemIndex, when tableLookup( "mp/propsTable.csv", 0, dvarString( "mapname" ) + "_"+itemIndex, 1 ) != "" ) \
+	CHOICE_BUTTON_VIS_NOHI( itemIndex, "@"+tableLookup("mp/propsTable.csv", 0, dvarString( "mapname" )+"_"+itemIndex, 2), scriptMenuResponse itemIndex;, when (tableLookup( "mp/propsTable.csv", 0, dvarString( "mapname" ) + "_"+itemIndex, 1 ) != "") )
+
+{
+	menuDef
+	{
+		name			"changeclass_props"
+		rect			0 0 640 480
+		focuscolor		COLOR_FOCUSED
+		style			WINDOW_STYLE_EMPTY
+		blurWorld		7.0
+
+		onEsc
+		{
+			scriptMenuResponse "back";
+		}
+
+		// background overlay
+		itemDef	{
+			style			WINDOW_STYLE_FILLED
+			rect			0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			backcolor		0 0 0 .75 //0 0.05 0.15 0.5
+			visible			1
+			decoration
+		}
+		// gradient_top
+		itemDef	{
+			style			WINDOW_STYLE_SHADER
+			rect			0 0 854 75 HORIZONTAL_ALIGN_FULLSCREEN 0
+			background		"gradient_top"
+			visible			1
+			decoration
+		}
+		// gradient_bottom
+		itemDef	{
+			style			WINDOW_STYLE_SHADER
+			rect			0 405 854 75 HORIZONTAL_ALIGN_FULLSCREEN 0
+			background		"gradient_bottom"
+			visible			1
+			decoration
+		}
+
+		// ------------------ TREE TITLE ------------------
+
+		CHOICE_MENU_TITLE( "@OW_CHOOSE_CLASS_PROP" )
+
+		// ------------------ buttons ---------------------
+		#define BACK_OPEN	;
+		#include "ui_mp/navcontrols.inc"
+
+		//=========================================================================
+		//================ MENU SELECTION FOR ONLINE/OFFLINE GAME =================
+		//=========================================================================
+		#include "ui_mp/teamicon.inc"
+
+		//#undef CHOICE_HORIZONTAL_ALIGN
+		//#define CHOICE_HORIZONTAL_ALIGN HORIZONTAL_ALIGN_RIGHT
+
+		#undef CHOICE_Y_COUNT
+		#define CHOICE_Y_COUNT 15
+		
+		#undef CHOICE_X_SPACING
+		#define CHOICE_X_SPACING 215
+
+		#undef CHOICE_Y_START
+		#define CHOICE_Y_START 50
+
+		#undef CHOICE_X_START
+		#define CHOICE_X_START -25
+	
+		CHOICE_PROP(1)
+		CHOICE_PROP(2)
+		CHOICE_PROP(3)
+		CHOICE_PROP(4)		
+		CHOICE_PROP(5)
+		CHOICE_PROP(6)
+		CHOICE_PROP(7)
+		CHOICE_PROP(8)								
+		CHOICE_PROP(9)
+		CHOICE_PROP(10)		
+		CHOICE_PROP(11)
+		CHOICE_PROP(12)
+		CHOICE_PROP(13)
+		CHOICE_PROP(14)								
+		CHOICE_PROP(15)
+
+		CHOICE_PROP(16)
+		CHOICE_PROP(17)
+		CHOICE_PROP(18)
+		CHOICE_PROP(19)
+		CHOICE_PROP(20)								
+		CHOICE_PROP(21)
+		CHOICE_PROP(22)
+		CHOICE_PROP(23)
+		CHOICE_PROP(24)		
+		CHOICE_PROP(25)
+		CHOICE_PROP(26)
+		CHOICE_PROP(27)
+		CHOICE_PROP(28)				
+		CHOICE_PROP(29)
+		CHOICE_PROP(30)
+		
+		CHOICE_PROP(31)
+		CHOICE_PROP(32)
+		CHOICE_PROP(33)
+		CHOICE_PROP(34)		
+		CHOICE_PROP(35)
+		CHOICE_PROP(36)
+		CHOICE_PROP(37)
+		CHOICE_PROP(38)								
+		CHOICE_PROP(39)
+		CHOICE_PROP(40)		
+		CHOICE_PROP(41)
+		CHOICE_PROP(42)
+		CHOICE_PROP(43)
+		CHOICE_PROP(44)								
+		CHOICE_PROP(45)
+
+		#include "ui/safearea.menu"
+	}
+}

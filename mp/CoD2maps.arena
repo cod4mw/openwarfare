@@ -1,0 +1,126 @@
+{
+	map		"mp_convoy"
+	longname	"MPUI_CONVOY"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+	
+}
+
+{
+	map		"mp_backlot"
+	longname	"MPUI_BACKLOT"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map		"mp_bloc"
+	longname	"MPUI_BLOC"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map		"mp_bog"
+	longname	"MPUI_BOG"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map			"mp_broadcast"
+	longname	"MPUI_BROADCAST"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map			"mp_carentan"
+	longname	"MPUI_CARENTAN"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map		"mp_countdown"
+	longname	"MPUI_COUNTDOWN"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map		"mp_crash"
+	longname	"MPUI_CRASH"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map			"mp_creek"
+	longname	"MPUI_CREEK"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map		"mp_crossfire"
+	longname	"MPUI_CROSSFIRE"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map		"mp_citystreets"
+	longname	"MPUI_CITYSTREETS"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map		"mp_farm"
+	longname	"MPUI_FARM"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map			"mp_killhouse"
+	longname	"MPUI_KILLHOUSE"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map			"mp_overgrown"
+	longname	"MPUI_OVERGROWN"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map			"mp_pipeline"
+	longname	"MPUI_PIPELINE"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map			"mp_shipment"
+	longname	"MPUI_SHIPMENT"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map			"mp_showdown"
+	longname	"MPUI_SHOWDOWN"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map			"mp_strike"
+	longname	"MPUI_STRIKE"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map			"mp_vacant"
+	longname	"MPUI_VACANT"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map			"mp_cargoship"
+	longname	"MPUI_CARGOSHIP"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}
+
+{
+	map		"mp_crash_snow"
+	longname	"MPUI_CRASH_SNOW"
+	gametype	"ass bel ch ctf dm dom ftag gr gg koth lms lts oitc re sab sd ss war tgr vg"
+}

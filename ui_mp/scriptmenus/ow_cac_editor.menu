@@ -1,0 +1,718 @@
+//******************************************************************************
+//  _____                  _    _             __
+// |  _  |                | |  | |           / _|
+// | | | |_ __   ___ _ __ | |  | | __ _ _ __| |_ __ _ _ __ ___
+// | | | | '_ \ / _ \ '_ \| |/\| |/ _` | '__|  _/ _` | '__/ _ \
+// \ \_/ / |_) |  __/ | | \  /\  / (_| | |  | || (_| | | |  __/
+//  \___/| .__/ \___|_| |_|\/  \/ \__,_|_|  |_| \__,_|_|  \___|
+//       | |               We don't make the game you play.
+//       |_|                 We make the game you play BETTER.
+//
+//            Website: http://openwarfaremod.com/
+//******************************************************************************
+
+#include "ui/menudef.h"
+#include "ui_mp/common_macro.inc"
+
+#include "ui_mp/menustyle.inc"
+#include "ui_mp/choices_setup_teams.menu"
+
+#undef CHOICE_X_START
+#undef CHOICE_Y_START
+#define CHOICE_X_START			112//150
+#define CHOICE_Y_START			50
+
+#undef CHOICE_TEXTALIGN
+#define	CHOICE_TEXTALIGN		ITEM_ALIGN_MIDDLE_CENTER
+
+#undef CHOICE_SIZE_X
+#define CHOICE_SIZE_X			143//70
+
+#define CHOICE_CAC_BUTTON( itemIndex, textArg, visArg ) \
+		itemDef \
+		{ \
+			type			ITEM_TYPE_TEXT \
+			rect			CHOICE_RECT( itemIndex ) \
+			exp				text( textArg ); \
+			textfont		CHOICE_TEXTFONT \
+			textscale		CHOICE_TEXTSIZE \
+			textstyle		CHOICE_TEXTSTYLE \
+			textAlign		CHOICE_TEXTALIGN \
+			textAlignX		CHOICE_TEXT_OFFSET_X \
+			forecolor		CHOICE_TEXTCOLOR \
+			visible			visArg \
+			decoration \
+		}
+{
+
+
+	menuDef
+	{
+		name			"ow_cac_editor"
+		rect			0 0 640 480
+		focuscolor		COLOR_FOCUSED
+		style			WINDOW_STYLE_EMPTY
+		blurWorld		7.0
+		onEsc
+		{
+			play "mouse_click";
+			close self;
+		}
+
+		// background overlay
+		itemDef
+		{
+			style			WINDOW_STYLE_FILLED
+			rect			0 0 640 480 HORIZONTAL_ALIGN_FULLSCREEN VERTICAL_ALIGN_FULLSCREEN
+			backcolor		0 0 0 0.75 //0 0.05 0.15 0.5
+			visible			1
+			decoration
+		}
+
+		// gradient_top
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			rect			0 0 854 75 HORIZONTAL_ALIGN_FULLSCREEN 0
+			background		"gradient_top"
+			visible			1
+			decoration
+		}
+
+		// gradient_bottom
+		itemDef
+		{
+			style			WINDOW_STYLE_SHADER
+			rect			0 405 854 75 HORIZONTAL_ALIGN_FULLSCREEN 0
+			background		"gradient_bottom"
+			visible			1
+			decoration
+		}
+		
+		itemDef 
+		{
+			name			submit
+			text			"@OW_CAC_SUBMIT"
+			type			1
+			style			WINDOW_STYLE_FILLED
+			textstyle		ITEM_TEXTSTYLE_SHADOWED
+			rect			-50 -26 100 20 HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_BOTTOM
+			textfont		UI_FONT_NORMAL
+			textalign		ITEM_ALIGN_LEFT
+			textscale		TEXTSIZE_SMALL
+			textaligny		18
+			visible			1
+			mouseEnter		{ play "mouse_over"; }
+			action 
+			{
+				play "oldschool_pickup";
+				scriptmenuresponse "cacSubmit";
+			}	
+		}		
+
+		// ------------------ TREE TITLE ------------------
+
+		CHOICE_MENU_TITLE( "@OW_CAC_TITLE" )
+
+		// ------------------ buttons ---------------------
+		//#define BACK_OPEN open "class";
+		#define BACK_CLOSE "@MENU_CLOSE";
+		#include "ui_mp/navcontrols.inc"
+
+		// PC widescreen fix
+		#undef	CHOICE_HORIZONTAL_ALIGN
+		#define CHOICE_HORIZONTAL_ALIGN HORIZONTAL_ALIGN_LEFT
+
+		#undef TEXTSIZE_SMALL
+		#define TEXTSIZE_SMALL 0.3
+		#undef TEXTSIZE_MEDIUM
+		#define TEXTSIZE_MEDIUM 0.4		
+		
+		#define TITLES_ORIGIN 52
+		#define POSITION_Y( yOffset ) 		(TITLES_ORIGIN + yOffset)
+		
+		//Class	
+		itemDef 
+		{
+			name 		"cacClassPrev"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 1 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4
+			background		"ui_arrow_left"
+			forecolor		COLOR_FOCUSED
+			visible			1
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacClassPrev"; }	
+		}
+		CHOICE_CAC_BUTTON( 1, "@OW_CAC_CLASS", 1 )
+		itemDef 
+		{
+			name 		"cacClassNext"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 1 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_FOCUSED
+			visible			1
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacClassNext"; }	
+		}	
+
+		//Primary
+		itemDef 
+		{
+			name 		"cacPrimaryPrev"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 2 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4
+			background		"ui_arrow_left"
+			forecolor		COLOR_FOCUSED
+			visible			1
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacPrimaryPrev"; }	
+		}
+		CHOICE_CAC_BUTTON( 2, "@MPUI_PRIMARY_WEAPON", 1 )
+		itemDef 
+		{
+			name 		"cacPrimaryNext"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 2 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_FOCUSED
+			visible			1
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacPrimaryNext"; }	
+		}	
+
+		//Primary Attachment
+		itemDef 
+		{
+			name 		"cacPAttachmentPrev"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 3 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4
+			background		"ui_arrow_left"
+			forecolor		COLOR_FOCUSED
+			visible			when ( dvarInt( ow_cac_stat_primary ) != 22 )
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacPAttachmentPrev"; }	
+		}
+		itemDef 
+		{
+			name 		"cacPAttachmentPrevDisabled"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 3 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4
+			background		"ui_arrow_left"
+			forecolor		COLOR_DISABLED
+			visible			when ( dvarInt( ow_cac_stat_primary ) == 22 )
+		}
+		CHOICE_CAC_BUTTON( 3, "@OW_CAC_PRIMARY_ATTACHMENT", 1 )
+		itemDef 
+		{
+			name 		"cacPAttachmentNext"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 3 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_FOCUSED
+			visible			when ( dvarInt( ow_cac_stat_primary ) != 22 )
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacPAttachmentNext"; }	
+		}
+		itemDef 
+		{
+			name 		"cacPAttachmentNextDisabled"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 3 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_DISABLED
+			visible			when ( dvarInt( ow_cac_stat_primary ) == 22 )
+		}
+		
+		//Camo
+		itemDef 
+		{
+			name 		"cacCamoPrev"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 4 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4
+			background		"ui_arrow_left"
+			forecolor		COLOR_FOCUSED
+			visible			1
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacCamoPrev"; }	
+		}
+		CHOICE_CAC_BUTTON( 4, "@OW_CAC_CAMO", 1 )
+		itemDef 
+		{
+			name 		"cacCamoNext"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 4 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_FOCUSED
+			visible			1
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacCamoNext"; }	
+		}
+
+		//Secondary - non overkill
+		itemDef 
+		{
+			name 		"cacSecondaryPrev"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 5 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4
+			background		"ui_arrow_left"
+			forecolor		COLOR_FOCUSED
+			visible			when ( dvarInt( ow_cac_stat_perk2 ) != 166 )
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacSecondaryPrev"; }	
+		}
+		CHOICE_CAC_BUTTON( 5, "@MPUI_SIDE_ARM1", when ( dvarInt( ow_cac_stat_perk2 ) != 166 ) )
+		itemDef 
+		{
+			name 		"cacSecondaryNext"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 5 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_FOCUSED
+			visible			when ( dvarInt( ow_cac_stat_perk2 ) != 166 )
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacSecondaryNext"; }	
+		}			
+
+		//Secondary
+		itemDef 
+		{
+			name 		"cacSecondaryPrev"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 5 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4
+			background		"ui_arrow_left"
+			forecolor		COLOR_FOCUSED
+			visible			when ( dvarInt( ow_cac_stat_perk2 ) == 166 )
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacSecondaryPrev"; }	
+		}
+		CHOICE_CAC_BUTTON( 5, "@MPUI_SECONDARY_WEAPON", when ( dvarInt( ow_cac_stat_perk2 ) == 166 ) )
+		itemDef 
+		{
+			name 		"cacSecondaryNext"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 5 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_FOCUSED
+			visible			when ( dvarInt( ow_cac_stat_perk2 ) == 166 )
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacSecondaryNext"; }	
+		}
+		
+		//Secondary Attachment- non overkill
+		itemDef 
+		{
+			name 		"cacSAttachmentPrev"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 6 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4
+			background		"ui_arrow_left"
+			forecolor		COLOR_FOCUSED
+			visible			when ( dvarInt( ow_cac_stat_perk2 ) != 166 && ( dvarInt( ow_cac_stat_secondary ) != 3 || dvarInt( ow_cac_stat_secondary ) != 4 ) )
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacSAttachmentPrev"; }	
+		}
+		itemDef 
+		{
+			name 		"cacSAttachmentPrevDisabled"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 6 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4
+			background		"ui_arrow_left"
+			forecolor		COLOR_DISABLED
+			visible			when ( dvarInt( ow_cac_stat_perk2 ) != 166 && ( dvarInt( ow_cac_stat_secondary ) == 3 || dvarInt( ow_cac_stat_secondary ) == 4 ) )
+		}
+		CHOICE_CAC_BUTTON( 6, "@OW_CAC_SIDE_ARM_ATTACHMENT", when ( dvarInt( ow_cac_stat_perk2 ) != 166 ) )
+		itemDef 
+		{
+			name 		"cacSAttachmentNext"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 6 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_FOCUSED
+			visible			when ( dvarInt( ow_cac_stat_perk2 ) != 166 && ( dvarInt( ow_cac_stat_secondary ) != 3 || dvarInt( ow_cac_stat_secondary ) != 4 ) )
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacSAttachmentNext"; }	
+		}
+		itemDef 
+		{
+			name 		"cacSAttachmentNextDisabled"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 6 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_DISABLED
+			visible			when ( dvarInt( ow_cac_stat_perk2 ) != 166 && ( dvarInt( ow_cac_stat_secondary ) == 3 || dvarInt( ow_cac_stat_secondary ) == 4 ) )
+		}
+		
+		//Secondary Attachment
+		itemDef 
+		{
+			name 		"cacSAttachmentPrev"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 6 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4
+			background		"ui_arrow_left"
+			forecolor		COLOR_FOCUSED
+			visible			when ( dvarInt( ow_cac_stat_perk2 ) == 166 && dvarInt( ow_cac_stat_secondary ) != 22 )
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacSAttachmentPrev"; }	
+		}
+		itemDef 
+		{
+			name 		"cacSAttachmentPrevDisabled"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 6 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4
+			background		"ui_arrow_left"
+			forecolor		COLOR_DISABLED
+			visible			when ( dvarInt( ow_cac_stat_perk2 ) == 166 && dvarInt( ow_cac_stat_secondary ) == 22 )
+		}
+		CHOICE_CAC_BUTTON( 6, "@OW_CAC_SECONDARY_ATTACHMENT", when ( dvarInt( ow_cac_stat_perk2 ) == 166 ) )
+		itemDef 
+		{
+			name 		"cacSAttachmentNext"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 6 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_FOCUSED
+			visible			when ( dvarInt( ow_cac_stat_perk2 ) == 166 && dvarInt( ow_cac_stat_secondary ) != 22 )
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacSAttachmentNext"; }	
+		}
+		itemDef 
+		{
+			name 		"cacSAttachmentNextDisabled"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 6 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_DISABLED
+			visible			when ( dvarInt( ow_cac_stat_perk2 ) == 166 && dvarInt( ow_cac_stat_secondary ) == 22 )
+		}
+		
+		//Perk 1
+		itemDef 
+		{
+			name 		"cacPerk1Prev"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 7 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4 
+			background		"ui_arrow_left"
+			forecolor		COLOR_FOCUSED
+			visible			when ( dvarInt( ow_cac_stat_perk1 ) != 193 )
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacPerk1Prev"; }	
+		}
+		itemDef 
+		{
+			name 		"cacPerk1PrevDisabled"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 7 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4
+			background		"ui_arrow_left"
+			forecolor		COLOR_DISABLED
+			visible			when ( dvarInt( ow_cac_stat_perk1 ) == 193 )
+		}
+		CHOICE_CAC_BUTTON( 7, "@MPUI_PERK_1", 1 )
+		CHOICE_BUTTON_BG_RAW( 7, "gradient_fadein", 0.5 0.15 0 0.5, when( dvarInt( ow_cac_stat_perk1 ) == 190 ); )
+		itemDef 
+		{
+			name 		"cacPerk1Next"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 7 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_FOCUSED
+			visible			when ( dvarInt( ow_cac_stat_perk1 ) != 193 )
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacPerk1Next"; }	
+		}
+		itemDef 
+		{
+			name 		"cacPerk1NextDisabled"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 7 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_DISABLED
+			visible			when ( dvarInt( ow_cac_stat_perk1 ) == 193 )	
+		}
+		
+		//Perk 2
+		itemDef 
+		{
+			name 		"cacPerk2Prev"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 8 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4
+			background		"ui_arrow_left"
+			forecolor		COLOR_FOCUSED
+			visible			1
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacPerk2Prev"; }	
+		}
+		CHOICE_CAC_BUTTON( 8, "@MPUI_PERK_2", 1 )
+		itemDef 
+		{
+			name 		"cacPerk2Next"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 8 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_FOCUSED
+			visible			1
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacPerk2Next"; }	
+		}
+		
+		//Perk 3
+		itemDef 
+		{
+			name 		"cacPerk3Prev"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 9 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4
+			background		"ui_arrow_left"
+			forecolor		COLOR_FOCUSED
+			visible			1
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacPerk3Prev"; }	
+		}
+		CHOICE_CAC_BUTTON( 9, "@MPUI_PERK_3", 1 )
+		itemDef 
+		{
+			name 		"cacPerk3Next"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 9 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_FOCUSED
+			visible			1
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacPerk3Next"; }	
+		}
+		
+		//Special Grenade
+		itemDef 
+		{
+			name 		"cacSGrenadePrev"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 10 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			138 4
+			background		"ui_arrow_left"
+			forecolor		COLOR_FOCUSED
+			visible			1
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacSGrenadePrev"; }	
+		}
+		CHOICE_CAC_BUTTON( 10, "@MPUI_SPECIAL_GRENADE", 1 )
+		itemDef 
+		{
+			name 		"cacSGrenadeNext"
+			type			1
+			style			WINDOW_STYLE_SHADER
+			rect			CHOICE_ORIGIN( 10 ) 16 16 CHOICE_HORIZONTAL_ALIGN CHOICE_VERTICAL_ALIGN 
+			origin			148 4
+			background		"ui_arrow_right"
+			forecolor		COLOR_FOCUSED
+			visible			1
+		    mouseEnter { play "mouse_over"; } 
+		    action { play "mouse_click"; scriptMenuResponse "cacSGrenadeNext"; }	
+		}
+
+		#include "ui_mp/ow_cac_loadout.inc"
+		
+		#include "ui/safearea.menu"
+		
+		// Pel For Editing Class Names
+		#undef CHOICE_SIZE_X
+		#define CHOICE_SIZE_X			213
+	
+		#undef CHOICE_HORIZONTAL_ALIGN
+		#define CHOICE_HORIZONTAL_ALIGN	HORIZONTAL_ALIGN_CENTER
+		#undef CHOICE_VERTICAL_ALIGN
+		#define CHOICE_VERTICAL_ALIGN	VERTICAL_ALIGN_CENTER
+		
+		#define SIDE_MARGIN		40
+		
+		itemDef 
+		{
+			name			renameEntry
+			group			grpControls
+			TYPE			4
+			text			" "
+			dvar			customclass1
+			rect			-481 50 150 23 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			origin			125 -1
+			textalignx		-4
+			textaligny		-1
+			maxchars		15
+			maxpaintchars	15
+			textalign		ITEM_ALIGN_MIDDLE_LEFT
+			textfont		UI_FONT_NORMAL
+			textscale		TEXTSIZE_MEDIUM
+			border			1
+			bordersize		1
+			bordercolor		0 0 0 .2
+			forecolor		.9 .9 .9 1
+			style			WINDOW_STYLE_FILLED
+			backcolor		0.25 0.25 0.25 1
+			visible			when( dvarstring( ow_cac_class ) == "customclass1" )
+			mouseenter		{ show keyBindStatus; play "mouse_over"; }
+			mouseexit		{ hide keyBindStatus; setfocus ok_button; }
+		}
+		itemDef 
+		{
+			name			renameEntry
+			group			grpControls
+			TYPE			4
+			text			" "
+			dvar			customclass2
+			rect			-481 50 150 23 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			origin			125 -1
+			textalignx		-4
+			textaligny		-1
+			maxchars		15
+			maxpaintchars	15
+			textalign		ITEM_ALIGN_MIDDLE_LEFT
+			textfont		UI_FONT_NORMAL
+			textscale		TEXTSIZE_MEDIUM
+			border			1
+			bordersize		1
+			bordercolor		0 0 0 .2
+			forecolor		.9 .9 .9 1
+			style			WINDOW_STYLE_FILLED
+			backcolor		0.25 0.25 0.25 1
+			visible			when( dvarstring( ow_cac_class ) == "customclass2" )
+			mouseenter		{ show keyBindStatus; play "mouse_over"; }
+			mouseexit		{ hide keyBindStatus; setfocus ok_button; }
+		}
+		itemDef 
+		{
+			name			renameEntry
+			group			grpControls
+			TYPE			4
+			text			" "
+			dvar			customclass3
+			rect			-481 50 150 23 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			origin			125 -1
+			textalignx		-4
+			textaligny		-1
+			maxchars		15
+			maxpaintchars	15
+			textalign		ITEM_ALIGN_MIDDLE_LEFT
+			textfont		UI_FONT_NORMAL
+			textscale		TEXTSIZE_MEDIUM
+			border			1
+			bordersize		1
+			bordercolor		0 0 0 .2		
+			forecolor		.9 .9 .9 1
+			style			WINDOW_STYLE_FILLED
+			backcolor		0.25 0.25 0.25 1
+			visible			when( dvarstring( ow_cac_class ) == "customclass3" )
+			mouseenter		{ show keyBindStatus; play "mouse_over"; }
+			mouseexit		{ hide keyBindStatus; setfocus ok_button; }
+		}
+		itemDef 
+		{
+			name			renameEntry
+			group			grpControls
+			TYPE			4
+			text			" "
+			dvar			customclass4
+			rect			-481 50 150 23 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			origin			125 -1
+			textalignx		-4
+			textaligny		-1
+			maxchars		15
+			maxpaintchars	15
+			textalign		ITEM_ALIGN_MIDDLE_LEFT
+			textfont		UI_FONT_NORMAL
+			textscale		TEXTSIZE_MEDIUM
+			border			1
+			bordersize		1
+			bordercolor		0 0 0 .2			
+			forecolor		.9 .9 .9 1
+			style			WINDOW_STYLE_FILLED
+			backcolor		0.25 0.25 0.25 1
+			visible			when( dvarstring( ow_cac_class ) == "customclass4" )
+			mouseenter		{ show keyBindStatus; play "mouse_over"; }
+			mouseexit		{ hide keyBindStatus; setfocus ok_button; }
+		}
+		itemDef 
+		{
+			name			renameEntry
+			group			grpControls
+			TYPE			4
+			text			" "
+			dvar			customclass5
+			rect			-481 50 150 23 HORIZONTAL_ALIGN_RIGHT VERTICAL_ALIGN_TOP
+			origin			125 -1
+			textalignx		-4
+			textaligny		-1
+			maxchars		15
+			maxpaintchars	15
+			textalign		ITEM_ALIGN_MIDDLE_LEFT
+			textfont		UI_FONT_NORMAL
+			textscale		TEXTSIZE_MEDIUM
+			border			1
+			bordersize		1
+			bordercolor		0 0 0 .2		
+			forecolor		.9 .9 .9 1
+			style			WINDOW_STYLE_FILLED
+			backcolor		0.25 0.25 0.25 1
+			visible			when( dvarstring( ow_cac_class ) == "customclass5" )
+			mouseenter		{ show keyBindStatus; play "mouse_over"; }
+			mouseexit		{ hide keyBindStatus; setfocus ok_button; }
+		}
+	}
+}
+		

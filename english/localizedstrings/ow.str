@@ -1,0 +1,1406 @@
+//******************************************************************************
+//  _____                  _    _             __
+// |  _  |                | |  | |           / _|
+// | | | |_ __   ___ _ __ | |  | | __ _ _ __| |_ __ _ _ __ ___
+// | | | | '_ \ / _ \ '_ \| |/\| |/ _` | '__|  _/ _` | '__/ _ \
+// \ \_/ / |_) |  __/ | | \  /\  / (_| | |  | || (_| | | |  __/
+//  \___/| .__/ \___|_| |_|\/  \/ \__,_|_|  |_| \__,_|_|  \___|
+//       | |               We don't make the game you play.
+//       |_|                 We make the game you play BETTER.
+//
+//            Website: http://openwarfaremod.com/
+//******************************************************************************
+
+VERSION          "1"
+CONFIG           "C:\trees\cod3\cod3\bin\StringEd.cfg"
+FILENOTES        ""
+
+//******************************************************************************
+// maps/mp/gametypes/ass.gsc
+//******************************************************************************
+REFERENCE ASSASSINATION
+LANG_ENGLISH "Assassination"
+
+REFERENCE ASSASSINATION_ATTACKER
+LANG_ENGLISH "Protect the V.I.P."
+
+REFERENCE ASSASSINATION_ATTACKER_SCORE
+LANG_ENGLISH "Protect and escort the V.I.P. to the extraction zone. First team with &&1 points wins."
+
+REFERENCE ASSASSINATION_DEFENDER
+LANG_ENGLISH "Eliminate the V.I.P."
+
+REFERENCE ASSASSINATION_DEFENDER_SCORE
+LANG_ENGLISH "Eliminate the V.I.P. or prevent him from reaching the extraction zone. First team with &&1 points wins."
+
+REFERENCE ASSASSINATION_EXTRACTING_VIP
+LANG_ENGLISH "Extracting..."
+
+REFERENCE ASSASSINATION_VIP_EXTRACTED
+LANG_ENGLISH "V.I.P. successfully extracted"
+
+REFERENCE ASSASSINATION_VIP_ELIMINATED
+LANG_ENGLISH "The V.I.P. has been eliminated"
+
+
+//******************************************************************************
+// maps/mp/gametypes/bel.gsc
+//******************************************************************************
+REFERENCE BEHIND_ENEMY_LINES
+LANG_ENGLISH "Behind Enemy Lines"
+
+REFERENCE OBJECTIVES_ATTACKERS_BEL
+LANG_ENGLISH "Gain points by hunting down enemy runners."
+
+REFERENCE OBJECTIVES_DEFENDERS_BEL
+LANG_ENGLISH "Gain points by surviving and eliminating enemy players."
+
+REFERENCE OBJECTIVES_ATTACKERS_BEL_SCORE
+LANG_ENGLISH "Gain points by hunting down enemy runners. First player to &&1 points wins."
+
+REFERENCE OBJECTIVES_DEFENDERS_BEL_SCORE
+LANG_ENGLISH "Gain points by surviving and eliminating enemy players. First player to &&1 points wins."
+
+REFERENCE OBJECTIVES_ATTACKERS_BEL_HINT
+LANG_ENGLISH "Hunt down enemy runners."
+
+REFERENCE OBJECTIVES_DEFENDERS_BEL_HINT
+LANG_ENGLISH "Survive and eliminate enemy players."
+
+REFERENCE BEL_TIME_ALIVE
+LANG_ENGLISH "Time Alive: &&1"
+
+REFERENCE BEL_POINTS_EARNED
+LANG_ENGLISH "Points Earned: &&1"
+
+REFERENCE BEL_WILLSPAWN_ATTACKER
+LANG_ENGLISH "You will spawn as a hunter!"
+
+REFERENCE BEL_WILLSPAWN_DEFENDER
+LANG_ENGLISH "You will spawn as a runner!"
+
+REFERENCE BEL_SPAWNED_ATTACKER
+LANG_ENGLISH "You are a hunter!"
+
+REFERENCE BEL_SPAWNED_DEFENDER
+LANG_ENGLISH "You are a runner!"
+
+
+//******************************************************************************
+// maps/mp/gametypes/ch.gsc
+//******************************************************************************
+REFERENCE CAPTURE_AND_HOLD
+LANG_ENGLISH "Capture and Hold"
+
+REFERENCE CH_DONTHAVE_FLAG
+LANG_ENGLISH "Retrieve the flag: &&1"
+
+REFERENCE CH_FLAG_LOST
+LANG_ENGLISH "Flag lost by &&1."
+
+REFERENCE CH_FLAG_LOST_ENEMY
+LANG_ENGLISH "The enemy has lost the flag."
+
+REFERENCE CH_FLAG_TAKEN
+LANG_ENGLISH "Flag taken by &&1."
+
+REFERENCE CH_FLAG_TAKEN_ENEMY
+LANG_ENGLISH "The enemy has taken the flag."
+
+REFERENCE CH_HAVE_FLAG
+LANG_ENGLISH "Defend the flag: &&1"
+
+REFERENCE CH_HINT
+LANG_ENGLISH "Capture the flag."
+
+REFERENCE CH_MODE0
+LANG_ENGLISH "Gain points by capturing the flag and then holding it until the timer reaches zero."
+
+REFERENCE CH_MODE1
+LANG_ENGLISH "Gain points by capturing the flag and then holding it."
+
+REFERENCE CH_SCORE_MODE0
+LANG_ENGLISH "Gain points by capturing the flag and then holding it until the timer reaches zero. First team with &&1 points wins."
+
+REFERENCE CH_SCORE_MODE1
+LANG_ENGLISH "Gain points by capturing the flag and then holding it. First team with &&1 points wins."
+
+REFERENCE CH_WAITING_FOR_FLAG
+LANG_ENGLISH "Waiting to lose flag ownership or ..."
+
+
+//******************************************************************************
+// maps/mp/gametypes/ctf.gsc
+//******************************************************************************
+REFERENCE ENEMY_FLAG_DROPPED
+LANG_ENGLISH "Enemy flag was dropped!"
+
+REFERENCE ENEMY_FLAG_RETURNED_BY
+LANG_ENGLISH "Enemy flag was returned by &&1!"
+
+REFERENCE FLAG_DROPPED
+LANG_ENGLISH "Your flag was dropped!"
+
+REFERENCE FLAG_DROPPED_BY
+LANG_ENGLISH "&&1 dropped your flag!"
+
+REFERENCE FLAG_RECOVERED_BY
+LANG_ENGLISH "Your flag was recovered by &&1!"
+
+REFERENCE ENEMY_FLAG_RECOVERED_BY
+LANG_ENGLISH "Enemy flag was recovered by &&1!"
+
+REFERENCE YOUR_FLAG_RETURNING_IN
+LANG_ENGLISH "Your flag returning in: &&1"
+
+REFERENCE ENEMY_FLAG_RETURNING_IN
+LANG_ENGLISH "Enemy flag returning in: &&1"
+
+
+//******************************************************************************
+// maps/mp/gametypes/ftag.gsc
+//******************************************************************************
+REFERENCE FREEZETAG
+LANG_ENGLISH "Freeze Tag"
+
+REFERENCE FTAG_ALLIES_FROZEN
+LANG_ENGLISH "Allies have been frozen"
+
+REFERENCE FTAG_AXIS_FROZEN
+LANG_ENGLISH "Axis have been frozen"
+
+REFERENCE FTAG_UNFROZEN_STATS
+LANG_ENGLISH "You were unfrozen by &&1 after being frozen for ^3&&2^7 seconds."
+
+REFERENCE OBJECTIVES_FTAG
+LANG_ENGLISH "Gain points by freezing all the enemy players."
+
+REFERENCE OBJECTIVES_FTAG_SCORE
+LANG_ENGLISH "Gain points by freezing all the enemy players. First team with &&1 points wins."
+
+REFERENCE OBJECTIVES_FTAG_HINT
+LANG_ENGLISH "Freeze all the enemy players."
+
+
+//******************************************************************************
+// maps/mp/gametypes/gg.gsc
+//******************************************************************************
+REFERENCE GUNGAME
+LANG_ENGLISH "Gun Game"
+
+REFERENCE GUNGAME_OBJECTIVES
+LANG_ENGLISH "Gain levels by eliminating other players with the selected weapon."
+
+REFERENCE GUNGAME_SCORE
+LANG_ENGLISH "Gain levels by eliminating other players with the selected weapon.  First player to get the last kill with the last weapon wins."
+
+REFERENCE GUNGAME_HINT
+LANG_ENGLISH "Eliminate other players."
+
+REFERENCE GUNGAME_WINNER
+LANG_ENGLISH "Made last kill with last weapon!"
+
+
+//******************************************************************************
+// maps/mp/gametypes/gr.gsc
+//******************************************************************************
+REFERENCE GREED
+LANG_ENGLISH "Greed"
+
+REFERENCE OBJECTIVES_GR
+LANG_ENGLISH "Collect dogtags and deliver them to the drop zone."
+
+REFERENCE OBJECTIVES_GR_SCORE
+LANG_ENGLISH "Collect dogtags and deliver them to the drop zone. First player with &&1 points wins."
+
+REFERENCE OBJECTIVES_GR_HINT
+LANG_ENGLISH "Collect dogtags and deliver them to the drop zone."
+
+REFERENCE DOGTAGS_CAPTURED_BY
+LANG_ENGLISH "^3&&1^7 has captured ^3&&2^7 dogtag(s)."
+
+REFERENCE GR_DROPZONES_RELOCATING_IN
+LANG_ENGLISH "Drop zones re-locating in &&1"
+
+REFERENCE GR_DROPZONE_RELOCATING_IN
+LANG_ENGLISH "Drop zone re-locating in &&1"
+
+
+//******************************************************************************
+// maps/mp/gametypes/hns.gsc
+//******************************************************************************
+REFERENCE HIDEANDSEEK
+LANG_ENGLISH "Hide And Seek"
+
+REFERENCE PROPS_SHORT
+LANG_ENGLISH "Props"
+
+REFERENCE CHOOSE_CLASS_PROP
+LANG_ENGLISH "Choose Prop Class"
+
+REFERENCE OBJECTIVES_HNS_ATTACKER
+LANG_ENGLISH "Hunt down and kill the props."
+
+REFERENCE OBJECTIVES_HNS_ATTACKER_SCORE
+LANG_ENGLISH "Hunt down and kill the props.  First team to &&1 wins."
+
+REFERENCE OBJECTIVES_HNS_ATTACKER_HINT
+LANG_ENGLISH "Hunt down and kill the props."
+
+REFERENCE OBJECTIVES_HNS_DEFENDER
+LANG_ENGLISH "Survive by hiding from the hunters."
+
+REFERENCE OBJECTIVES_HNS_DEFENDER_SCORE
+LANG_ENGLISH "Survive by hiding from the hunters. First team to &&1 wins."
+
+REFERENCE OBJECTIVES_HNS_DEFENDER_HINT
+LANG_ENGLISH "Survive by hiding from the hunters."
+
+REFERENCE PROPS_WIN
+LANG_ENGLISH "Props win!"
+
+REFERENCE PROPS_WIN_MATCH
+LANG_ENGLISH "Props have won the match!"
+
+REFERENCE PROPS_WIN_ROUND
+LANG_ENGLISH "Props have won the round!"
+
+REFERENCE  PROPS_MISSION_ACCOMPLISHED
+LANG_ENGLISH  "Props mission accomplished"
+
+REFERENCE PROPS_ELIMINATED
+LANG_ENGLISH  "Props eliminated"
+
+REFERENCE PROPS_FORFEITED
+LANG_ENGLISH "Props forfeited"
+
+REFERENCE PROPS_HIDING_TIME
+LANG_ENGLISH "Hunting starts in &&1"
+
+REFERENCE MAXIMUM_MORPHS_REACHED
+LANG_ENGLISH "You are allowed to morph only ^3&&1^7 times within the same round."
+
+REFERENCE PROPS_HINT_LINE1
+LANG_ENGLISH "Press ^3[{openscriptmenu modkeybind zoomin}]^7 and ^3[{openscriptmenu modkeybind zoomout}]^7 to rotate the prop model."
+
+REFERENCE PROPS_HINT_LINE2
+LANG_ENGLISH "Press ^3[{+attack}]^7 to align the prop model with your view."
+
+REFERENCE PROPS_HINT_LINE3
+LANG_ENGLISH "Press ^3[{+melee}]^7 to quickly select a new prop model."
+
+REFERENCE PROPS_HINT_LINE4
+LANG_ENGLISH "Remember to go ^3Prone^7 and ^3Crouch^7 to reduce your hit area."
+
+REFERENCE PROPS_HINT_LINE5
+LANG_ENGLISH "Remember that you can throw back enemy grenades!"
+
+REFERENCE HUMANS_HINT_LINE1
+LANG_ENGLISH "It's best if you use the ^3Bandolier^7 perk to have enough ammo."
+
+REFERENCE HUMANS_HINT_LINE2
+LANG_ENGLISH "Remember that Props come in all sizes and shapes and they are very sneaky!"
+
+REFERENCE HUMANS_HINT_LINE3
+LANG_ENGLISH "Be careful! Props can throw back your grenades so stay alert."
+
+
+//******************************************************************************
+// maps/mp/gametypes/lms.gsc
+//******************************************************************************
+REFERENCE LASTMAN
+LANG_ENGLISH "Last Man Standing"
+
+REFERENCE OBJECTIVES_LMS
+LANG_ENGLISH "Eliminate all the other players."
+
+REFERENCE OBJECTIVES_LMS_SCORE
+LANG_ENGLISH "Eliminate all the other players. First player with &&1 points wins."
+
+REFERENCE OBJECTIVES_LMS_HINT
+LANG_ENGLISH "Eliminate all the other players."
+
+
+//******************************************************************************
+// maps/mp/gametypes/lts.gsc
+//******************************************************************************
+REFERENCE LASTTEAM
+LANG_ENGLISH "Last Team Standing"
+
+REFERENCE OBJECTIVES_LTS
+LANG_ENGLISH "Eliminate all the enemy players."
+
+REFERENCE OBJECTIVES_LTS_SCORE
+LANG_ENGLISH "Eliminate all the enemy players. First team with &&1 points wins."
+
+REFERENCE OBJECTIVES_LTS_HINT
+LANG_ENGLISH "Eliminate all the enemy players."
+
+
+//******************************************************************************
+// maps/mp/gametypes/oitc.gsc
+//******************************************************************************
+REFERENCE ONEINTHECHAMBER
+LANG_ENGLISH "One In The Chamber"
+
+REFERENCE OBJECTIVES_ONEINTHECHAMBER
+LANG_ENGLISH "Eliminate all the other players."
+
+REFERENCE OBJECTIVES_ONEINTHECHAMBER_SCORE
+LANG_ENGLISH "Eliminate all the other players. First player with &&1 points wins."
+
+REFERENCE OBJECTIVES_ONEINTHECHAMBER_HINT
+LANG_ENGLISH "Eliminate all the other players."
+
+REFERENCE UAV_ON
+LANG_ENGLISH "UAV Activated Permanently"
+
+
+//******************************************************************************
+// maps/mp/gametypes/re.gsc
+//******************************************************************************
+REFERENCE RETRIEVAL
+LANG_ENGLISH "Retrieval"
+
+REFERENCE OBJECTIVES_RE_ATTACKER
+LANG_ENGLISH "Retrieve the objectives from the enemy."
+
+REFERENCE OBJECTIVES_RE_ATTACKER_SCORE
+LANG_ENGLISH "Retrieve the objectives from the enemy. First team to &&1 points wins."
+
+REFERENCE OBJECTIVES_RE_ATTACKER_HINT
+LANG_ENGLISH "Retrieve the objectives."
+
+REFERENCE OBJECTIVES_RE_DEFENDER
+LANG_ENGLISH "Protect the objectives from being retrieved by the enemy."
+
+REFERENCE OBJECTIVES_RE_DEFENDER_SCORE
+LANG_ENGLISH "Protect the objectives from being retrieved by the enemy. First team to &&1 points wins."
+
+REFERENCE OBJECTIVES_RE_DEFENDER_HINT
+LANG_ENGLISH "Protect the objectives."
+
+REFERENCE RE_OBJECTIVE_A
+LANG_ENGLISH "Encryption keys"
+
+REFERENCE RE_OBJECTIVE_B
+LANG_ENGLISH "Spy list"
+
+REFERENCE RE_TAKEN
+LANG_ENGLISH "^3&&1^7 has taken the ^3&&2^7."
+
+REFERENCE RE_DROPPED
+LANG_ENGLISH "The ^3&&1^7 has been dropped."
+
+REFERENCE RE_DROPPED_BY
+LANG_ENGLISH "^3&&1^7 has dropped the ^3&&2^7."
+
+REFERENCE RE_RETURNED
+LANG_ENGLISH "The ^3&&1^7 has been returned to its original location."
+
+REFERENCE RE_RETRIEVED
+LANG_ENGLISH "^3&&1^7 has successfully retrieved the ^3&&2^7."
+
+REFERENCE RE_ONE_RETRIEVED
+LANG_ENGLISH "An objective has been retrieved."
+
+REFERENCE RE_ALL_RETRIEVED
+LANG_ENGLISH "All the objectives have been retrieved."
+
+
+//******************************************************************************
+// maps/mp/gametypes/ss.gsc
+//******************************************************************************
+REFERENCE SHARPSHOOTER
+LANG_ENGLISH "Sharp Shooter"
+
+REFERENCE OBJECTIVES_SHARPSHOOTER
+LANG_ENGLISH "Gain points by eliminating other players."
+
+REFERENCE OBJECTIVES_SHARPSHOOTER_SCORE
+LANG_ENGLISH "Gain points by eliminating other players.  First player to &&1 points wins."
+
+REFERENCE OBJECTIVES_SHARPSHOOTER_HINT
+LANG_ENGLISH "Eliminate all the other players."
+
+REFERENCE SHARPSHOOTER_CLYCLING_IN
+LANG_ENGLISH "Weapons cycling in &&1"
+
+
+//******************************************************************************
+// maps/mp/gametypes/tgr.gsc
+//******************************************************************************
+REFERENCE TEAM_GREED
+LANG_ENGLISH "Team Greed"
+
+REFERENCE OBJECTIVES_TGR
+LANG_ENGLISH "Collect dogtags and deliver them to the drop zone."
+
+REFERENCE OBJECTIVES_TGR_SCORE
+LANG_ENGLISH "Collect dogtags and deliver them to the drop zone. First team with &&1 points wins."
+
+REFERENCE OBJECTIVES_TGR_HINT
+LANG_ENGLISH "Collect dogtags and deliver them to the drop zone."
+
+REFERENCE TEAM_DOGTAGS_CAPTURED_BY
+LANG_ENGLISH "^3&&1^7 has captured ^3&&2^7 dogtag(s) for our team."
+
+REFERENCE ENEMY_DOGTAGS_CAPTURED_BY
+LANG_ENGLISH "^3&&1^7 has captured ^3&&2^7 dogtag(s) for the enemy team."
+
+
+//******************************************************************************
+// maps/mp/gametypes/vg.gsc
+//******************************************************************************
+REFERENCE VISUAL_GUIDE
+LANG_ENGLISH "Visual Guide"
+
+REFERENCE VISUAL_GUIDE_CAPS
+LANG_ENGLISH "VISUAL GUIDE"
+
+
+//******************************************************************************
+// maps/mp/gametypes/_globallogic.gsc
+//******************************************************************************
+REFERENCE JOINED_TEAM
+LANG_ENGLISH "Player ^3&&1^7 has joined the ^3&&2^7 team."
+
+REFERENCE LAST_ROUND
+LANG_ENGLISH "This is the last round!"
+
+REFERENCE MATCH_RESUMING_IN
+LANG_ENGLISH "Match resuming in:"
+
+
+//******************************************************************************
+// maps/mp/gametypes/_hardpoints.gsc
+//******************************************************************************
+REFERENCE AIRSTRIKE_AVAILABLEIN
+LANG_ENGLISH "Airstrike available in &&1 seconds."
+
+REFERENCE HELICOPTER_AVAILABLEIN
+LANG_ENGLISH "Helicopter available in &&1 seconds."
+
+REFERENCE KILLS_N
+LANG_ENGLISH "&&1 Kills!"
+
+REFERENCE REMINDER
+LANG_ENGLISH "Reminder..."
+
+
+//******************************************************************************
+// mp/rankTable.csv
+//******************************************************************************
+REFERENCE RANK_PRESTIGE1
+LANG_ENGLISH "Prestige MGS."
+
+REFERENCE RANK_PRESTIGE2
+LANG_ENGLISH "Prestige CSM."
+
+REFERENCE RANK_PRESTIGE3
+LANG_ENGLISH "Prestige SMOTA."
+
+REFERENCE RANK_PRESTIGE4
+LANG_ENGLISH "Prestige CWO."
+
+REFERENCE RANK_PRESTIGE5
+LANG_ENGLISH "Prestige Lt."
+
+REFERENCE RANK_PRESTIGE6
+LANG_ENGLISH "Prestige Maj."
+
+REFERENCE RANK_PRESTIGE7
+LANG_ENGLISH "Prestige Col."
+
+REFERENCE RANK_PRESTIGE8
+LANG_ENGLISH "Prestige CrSM."
+
+REFERENCE RANK_PRESTIGE9
+LANG_ENGLISH "Prestige GOTA."
+
+REFERENCE RANK_PRESTIGE10
+LANG_ENGLISH "Prestige SC."
+
+REFERENCE RANK_PRESTIGE1_FULL
+LANG_ENGLISH "Prestige Master Gny. Sergeant"
+
+REFERENCE RANK_PRESTIGE2_FULL
+LANG_ENGLISH "Prestige Command Sergeant Major"
+
+REFERENCE RANK_PRESTIGE3_FULL
+LANG_ENGLISH "Prestige S.M.O.T.A."
+
+REFERENCE RANK_PRESTIGE4_FULL
+LANG_ENGLISH "Prestige C.W.O."
+
+REFERENCE RANK_PRESTIGE5_FULL
+LANG_ENGLISH "Prestige Lieutenant"
+
+REFERENCE RANK_PRESTIGE6_FULL
+LANG_ENGLISH "Prestige Major"
+
+REFERENCE RANK_PRESTIGE7_FULL
+LANG_ENGLISH "Prestige Colonel"
+
+REFERENCE RANK_PRESTIGE8_FULL
+LANG_ENGLISH "Prestige C.S.M."
+
+REFERENCE RANK_PRESTIGE9_FULL
+LANG_ENGLISH "Prestige G.O.T.A."
+
+REFERENCE RANK_PRESTIGE10_FULL
+LANG_ENGLISH "Prestige Supreme Commander"
+
+
+//******************************************************************************
+// openwarfare/_advancedacp.gsc
+//******************************************************************************
+REFERENCE	AACP_TITLE
+LANG_ENGLISH "ADVANCED ACP"
+
+REFERENCE	AACP_MAP_CONTROL
+LANG_ENGLISH "^3Map Control Panel"
+
+REFERENCE	AACP_MAP_LOAD
+LANG_ENGLISH "Load Map/Gametype"
+
+REFERENCE	AACP_SET_NEXT
+LANG_ENGLISH "Set as Next Map/Gametype"
+
+REFERENCE	AACP_MAP_END
+LANG_ENGLISH "End Current Map"
+
+REFERENCE	AACP_MAP_FASTRESTART
+LANG_ENGLISH "Fast Restart Map"
+
+REFERENCE	AACP_MAP_RESTART
+LANG_ENGLISH "Restart Current Map"
+
+REFERENCE	AACP_MAP_NEXT
+LANG_ENGLISH "Rotate to Next Map"
+
+REFERENCE	AACP_RULESET_CONTROL
+LANG_ENGLISH "^3Ruleset Control Panel"
+
+REFERENCE	AACP_RULESET_LOAD
+LANG_ENGLISH "Load Ruleset"
+
+REFERENCE	AACP_NORULESET
+LANG_ENGLISH "^1<No Rulesets Active>"
+
+REFERENCE	AACP_PLAYER_CONTROL
+LANG_ENGLISH "^3Player Control Panel"
+
+REFERENCE AACP_PLAYER_RETURNSPAWN
+LANG_ENGLISH "Return Player to Spawn"
+
+REFERENCE AACP_PLAYER_RETURNED
+LANG_ENGLISH "^3You have been returned to your last spawn!"
+
+REFERENCE AACP_PLAYER_POINTOUT
+LANG_ENGLISH "Point Out Player"
+
+REFERENCE	AACP_PLAYER_SHOCK
+LANG_ENGLISH "Shock Player"
+
+REFERENCE	AACP_PLAYER_EXPLODE
+LANG_ENGLISH "Explode Player"
+
+REFERENCE	AACP_PLAYER_SWITCH_SPECTATOR
+LANG_ENGLISH "Switch to Spectator"
+
+REFERENCE	AACP_PLAYER_SWITCH_TEAM
+LANG_ENGLISH "Switch to Other Team"
+
+REFERENCE	AACP_PLAYER_REDIRECT
+LANG_ENGLISH "Redirect Player"
+
+REFERENCE	AACP_PLAYER_KILL
+LANG_ENGLISH "Kill Player"
+
+REFERENCE	AACP_PLAYER_KICK
+LANG_ENGLISH "Kick Player"
+
+REFERENCE	AACP_PLAYER_BAN
+LANG_ENGLISH "Ban Player"
+
+REFERENCE AACP_WARNING
+LANG_ENGLISH "^1Warning &&1 out of &&2 before getting kicked!"
+
+REFERENCE	AACP_NOTENABLED
+LANG_ENGLISH "Advanced ACP is not enabled in this server."
+
+REFERENCE	AACP_NOACCESS
+LANG_ENGLISH "You do not have access to the Advanced ACP via GUID ^3&&1^7."
+
+REFERENCE	AACP_NOPLAYER
+LANG_ENGLISH "^1<All Players Protected>"
+
+REFERENCE	AACP_YOU_TARGETED
+LANG_ENGLISH "^1You have been targeted for extermination!"
+
+REFERENCE	AACP_PLAYER_TARGETED
+LANG_ENGLISH "^1Player ^7&&1^1 has been targeted for extermination!"
+
+
+//******************************************************************************
+// openwarfare/_advancedmvs.gsc
+//******************************************************************************
+REFERENCE	AMVS_TITLE
+LANG_ENGLISH "Advanced Map Voting"
+
+REFERENCE	AMVS_GAMETYPE
+LANG_ENGLISH "Gametype Vote"
+
+REFERENCE	AMVS_MAP
+LANG_ENGLISH "Map Vote"
+
+REFERENCE	AMVS_GAMETYPE_WINNER
+LANG_ENGLISH "Next Gametype Will Be..."
+
+REFERENCE	AMVS_MAP_WINNER
+LANG_ENGLISH "Next Map Will Be..."
+
+REFERENCE	AMVS_TEMPORARY_RESULTS
+LANG_ENGLISH "Temporary Voting Results"
+
+REFERENCE	AMVS_NO_VOTES
+LANG_ENGLISH "Waiting for votes..."
+
+REFERENCE	AMVS_LOADING_MAP
+LANG_ENGLISH "Loading Gametype/Map In..."
+
+REFERENCE	AMVS_LEAVE_GAME
+LANG_ENGLISH "^7Press ^3ESC ^7to leave the game"
+
+REFERENCE AMVS_CASTVOTE
+LANG_ENGLISH "Cast Vote"
+
+
+//******************************************************************************
+// openwarfare/_anticamping.gsc
+//******************************************************************************
+REFERENCE MOVE_NEW_POSITION
+LANG_ENGLISH "Move to a new position soldier!"
+
+
+//******************************************************************************
+// openwarfare/_bigbrotherbot.gsc
+//******************************************************************************
+REFERENCE B3_DEATHDOWN
+LANG_ENGLISH "^7The admin has decreased the number of deaths for ^3&&1^7 by ^3&&2^7."
+
+REFERENCE B3_DEATHUP
+LANG_ENGLISH "^7The admin has increased the number of deaths for ^3&&1^7 by ^3&&2^7."
+
+REFERENCE B3_PUNISHED
+LANG_ENGLISH "^7You have been punished by the server admin!"
+
+REFERENCE B3_SCOREDOWN
+LANG_ENGLISH "^7The admin has decreased the score for ^3&&1^7 by ^3&&2^7 points."
+
+REFERENCE B3_SCOREUP
+LANG_ENGLISH "^7The admin has increased the score for ^3&&1^7 by ^3&&2^7 points."
+
+REFERENCE B3_TEAMSWITCH
+LANG_ENGLISH "^7The server admin has switched you to the other team."
+
+
+//******************************************************************************
+// openwarfare/_capeditor.gsc
+//******************************************************************************
+
+REFERENCE CAP_OPEN 
+LANG_ENGLISH "Hit the ^3[USE] ^7key to open the\n^3Customize-A-Player Interface" 
+
+REFERENCE CAP_CYCLE_AND_CLOSE
+LANG_ENGLISH "Hit the ^3[USE] ^7key to cycle through the models\nHit the ^3[MELEE] ^7key to exit the interface"
+
+REFERENCE CAP_INITIALIZING
+LANG_ENGLISH "Opening the ^3Customize-A-Player ^7Interface"
+
+REFERENCE CAP_SECONDS_LEFT
+LANG_ENGLISH "seconds left in CAP"
+
+
+//******************************************************************************
+// openwarfare/_damageeffect.gsc
+//******************************************************************************
+REFERENCE DE_BROKEN_ANKLE
+LANG_ENGLISH "^1You have broken your ankle!"
+
+
+//******************************************************************************
+// openwarfare/_dvarmonitor.gsc
+//******************************************************************************
+REFERENCE DVAR_MONITOR_NAME
+LANG_ENGLISH "Variable ^2&&1^7 has changed:"
+
+REFERENCE DVAR_MONITOR_OLD_NEW
+LANG_ENGLISH "Old value: ^3&&1^7. New value: ^3&&2^7."
+
+
+//******************************************************************************
+// openwarfare/_disarmexplosives.gsc
+//******************************************************************************
+REFERENCE EXPLOSIVE_DISARMED
+LANG_ENGLISH "Explosive has been disarmed."
+
+REFERENCE EXPLOSIVE_DISARMING
+LANG_ENGLISH "Disarming explosive"
+
+REFERENCE EXPLOSIVE_RETRIEVED
+LANG_ENGLISH "Explosive has been retrieved."
+
+REFERENCE EXPLOSIVE_RETRIEVING
+LANG_ENGLISH "Retrieving explosive"
+
+
+//******************************************************************************
+// openwarfare/_extendedobituaries.gsc
+//******************************************************************************
+REFERENCE EXTENDED_OBITUARY
+LANG_ENGLISH "^2&&1^7 killed ^1&&2^7. Hit location: &&3. Weapon: &&4. Distance: &&5."
+
+REFERENCE EXTENDED_OBITUARY_KILLEDBY_WEAPON
+LANG_ENGLISH "Killed by: ^3&&1^7. Weapon: ^3&&2^7."
+
+REFERENCE EXTENDED_OBITUARY_LOCATION_DISTANCE
+LANG_ENGLISH "Hit location: ^3&&1^7. Distance: ^3&&2^7."
+
+
+//******************************************************************************
+// openwarfare/_guidcs.gsc
+//******************************************************************************
+REFERENCE GUIDCS_GUID_NOT_ALLOWED
+LANG_ENGLISH "Your GUID is not allowed in this server..."
+
+REFERENCE GUIDCS_INFORMATION
+LANG_ENGLISH "For more information please go to:"
+
+REFERENCE GUIDCS_CONTACT
+LANG_ENGLISH "&&1"
+
+
+//******************************************************************************
+// openwarfare/_healthsystem.gsc
+//******************************************************************************
+REFERENCE BLEEDING_NOBANDAGES
+LANG_ENGLISH "You have no bandages left to cure your wounds."
+
+REFERENCE MEDIC_BANDAGE_SUCCESS
+LANG_ENGLISH "Successful bandage."
+
+REFERENCE MEDIC_BANDAGE_UNSUCCESSFUL
+LANG_ENGLISH "Unsuccessful bandage."
+
+REFERENCE MEDIC_SELF_BANDAGE
+LANG_ENGLISH "Bandaging ^1&&1^7."
+
+REFERENCE MEDIC_TEAMMATE_BANDAGE
+LANG_ENGLISH "^1&&1^7 is bandaging you."
+
+REFERENCE MEDIC_SELF_HEAL
+LANG_ENGLISH "Healing ^1&&1^7."
+
+REFERENCE MEDIC_TEAMMATE_HEAL
+LANG_ENGLISH "^1&&1^7 is healing you."
+
+REFERENCE MEDIC_HEALING_FULL
+LANG_ENGLISH "Done healing. Full use of bandage."
+
+REFERENCE MEDIC_HEALING_PARTIAL
+LANG_ENGLISH "Done healing. Partial use of bandage."
+
+REFERENCE TEAMMATE_BANDAGE
+LANG_ENGLISH "Your teammate is bandaging. Wait until he is done."
+
+REFERENCE TEAMMATE_HEAL
+LANG_ENGLISH "Your teammate is healing. Wait until he is done."
+
+
+//******************************************************************************
+// openwarfare/_idlemonitor.gsc
+//******************************************************************************
+REFERENCE KICK_IDLE
+LANG_ENGLISH "Kicking due to inactivity:"
+
+REFERENCE SWITCH_TO_SPECTATE
+LANG_ENGLISH "Switching to spectator:"
+
+
+//******************************************************************************
+// openwarfare/_martyrdom.gsc
+//******************************************************************************
+REFERENCE NOFRAGS_FOR_MARTYRDOM
+LANG_ENGLISH "No frag grenades remaining for Martyrdom."
+
+
+//******************************************************************************
+// openwarfare/_numlives.gsc
+//******************************************************************************
+REFERENCE LIVES_LEFT
+LANG_ENGLISH "You have ^3&&1^7 lives remaining..."
+
+REFERENCE LAST_LIFE
+LANG_ENGLISH "This is your last life!"
+
+
+//******************************************************************************
+// openwarfare/_objpoints.gsc
+//******************************************************************************
+REFERENCE QUICK_DEFUSE_1
+LANG_ENGLISH "^1Quick Defuse: ^7Cycle through the wires by pressing ^2[{+toggleads_throw}]^7"
+ 	 
+REFERENCE QUICK_DEFUSE_2
+LANG_ENGLISH "Press ^2[{+attack}]^7 to select the wire to cut"
+ 	 
+REFERENCE RED_WIRE
+LANG_ENGLISH "^1Red Wire"
+ 	 
+REFERENCE GREEN_WIRE
+LANG_ENGLISH "^2Green Wire"
+ 	 
+REFERENCE YELLOW_WIRE
+LANG_ENGLISH "^3Yellow Wire"
+ 	 
+REFERENCE BLUE_WIRE
+LANG_ENGLISH "^4Blue Wire"
+ 	 
+REFERENCE EXPLOSIVES_DESTROYED
+LANG_ENGLISH "Explosives Destroyed!"
+ 	 
+REFERENCE DESTROYING_EXPLOSIVES
+LANG_ENGLISH "Destroying Explosives"
+ 	 
+REFERENCE DESTROY_EXPLOSIVES
+LANG_ENGLISH "You can destroy the explosive by holding ^2[{+melee}]^7"
+
+
+//******************************************************************************
+// openwarfare/_playerdvars.gsc
+//******************************************************************************
+REFERENCE PLAYER_GUID
+LANG_ENGLISH "^7Your GUID is ^3&&1^7."
+
+REFERENCE ILLEGAL_USE_CLANTAGS
+LANG_ENGLISH "Illegal use of clan tags detected!"
+
+REFERENCE REMOVE_ILLEGAL_CLANTAGS
+LANG_ENGLISH "Remove the clan tags and reconnect to the server..."
+
+
+//******************************************************************************
+// openwarfare/_powerrank.gsc
+//******************************************************************************
+REFERENCE POWER_RANK_ATTACHMENTS
+LANG_ENGLISH "All your attachments have been unlocked!"
+
+REFERENCE POWER_RANK_CAMOS
+LANG_ENGLISH "All your camos have been unlocked!"
+
+REFERENCE POWER_RANKED
+LANG_ENGLISH "You've been power ranked!"
+
+
+//******************************************************************************
+// openwarfare/_quickactions.gsc
+//******************************************************************************
+REFERENCE QUICKACTION_BANDAGE
+LANG_ENGLISH "Apply bandage"
+
+REFERENCE QUICKACTION_ENDED
+LANG_ENGLISH "^1****************"
+
+REFERENCE QUICKACTION_TEXT
+LANG_ENGLISH "Quick Action &&1/&&2: ^3&&3"
+
+REFERENCE QUICKACTION_UNJAM
+LANG_ENGLISH "Unjam weapon"
+
+
+//******************************************************************************
+// openwarfare/_rangefinder.gsc
+//******************************************************************************
+REFERENCE RANGEFINDER_METERS
+LANG_ENGLISH "&&1 m"
+
+REFERENCE RANGEFINDER_YARDS
+LANG_ENGLISH "&&1 yd"
+
+
+//******************************************************************************
+// openwarfare/_readyupperiod.gsc
+//******************************************************************************
+REFERENCE READYUP_ALL_PLAYERS_READY
+LANG_ENGLISH "All players are ready!"
+
+REFERENCE READYUP_MOD_CHECKSUMS
+LANG_ENGLISH "^3CheckSums^7: &&1."
+
+REFERENCE READYUP_NOPASSWORD
+LANG_ENGLISH "Warning! Server has no password!"
+
+REFERENCE READYUP_NOT_READY
+LANG_ENGLISH "Not ready"
+
+REFERENCE READYUP_PERIOD
+LANG_ENGLISH "Match Ready Up Period"
+
+REFERENCE READYUP_PERIOD_ROUND
+LANG_ENGLISH "Intermission Ready Up Period"
+
+REFERENCE READYUP_PRESS_TO_TOGGLE
+LANG_ENGLISH "Press^3 [{+activate}] ^7to toggle readiness status"
+
+REFERENCE READYUP_READY
+LANG_ENGLISH "Ready"
+
+REFERENCE READYUP_RECORD_REMINDER
+LANG_ENGLISH "^3Don't forget to /RECORD the match!"
+
+REFERENCE READYUP_WAITING_FOR_MORE_PLAYERS
+LANG_ENGLISH "Waiting for more players..."
+
+
+//******************************************************************************
+// openwarfare/_reservedslots.gsc
+//******************************************************************************
+REFERENCE RESERVEDSLOTS_DISCONNECTED
+LANG_ENGLISH "Player ^3&&1^7 was disconnected to make room for clan members."
+
+REFERENCE RESERVEDSLOTS_MAKEROOM_DISCONNECT
+LANG_ENGLISH "^3You are being disconnected to make room for clan members."
+
+REFERENCE RESERVEDSLOTS_MAKEROOM_REDIRECT
+LANG_ENGLISH "^3You are being redirected to make room for clan members."
+
+REFERENCE RESERVEDSLOTS_REDIRECTED
+LANG_ENGLISH "Player ^3&&1^7 redirected to ^2&&2^7 to make room for clan members (press ^3[{openScriptMenu modkeybind redirect}]^7 to follow)."
+
+REFERENCE RESERVEDSLOTS_MANUAL_REDIRECT
+LANG_ENGLISH "Player ^3&&1^7 manually redirected to ^2&&2^7 (press ^3[{openscriptmenu modkeybind redirect}]^7 to follow)."
+
+REFERENCE RESERVEDSLOTS_TRYAGAIN
+LANG_ENGLISH "^3Please try connecting again in a few minutes..."
+
+
+//******************************************************************************
+// openwarfare/_rotateifempty.gsc
+//******************************************************************************
+REFERENCE EMPTY_ROTATE
+LANG_ENGLISH "Map will automatically rotate in &&1 seconds..."
+
+
+//******************************************************************************
+// openwarfare/_rsmonitor.gsc
+//******************************************************************************
+REFERENCE RULESET_DISABLED
+LANG_ENGLISH "Ruleset disabled. Restarting the map..."
+
+REFERENCE RULESET_NOT_VALID
+LANG_ENGLISH "Ruleset ^3&&1^7 is not valid or does not support the current gametype."
+
+REFERENCE RULESET_VALID
+LANG_ENGLISH "New ruleset ^3&&1^7 loaded. Restarting the map..."
+
+
+//******************************************************************************
+// openwarfare/_servermessages.gsc
+//******************************************************************************
+REFERENCE NEXT_MAP
+LANG_ENGLISH "^3&&1^7: &&2 (&&3)"
+
+
+//******************************************************************************
+// openwarfare/_strategyperiod.gsc
+//******************************************************************************
+REFERENCE STRATEGY_BYPASSED
+LANG_ENGLISH "Bypassed"
+
+REFERENCE STRATEGY_GET_READY
+LANG_ENGLISH "Get Ready!"
+
+REFERENCE STRATEGY_PERIOD_FINISHED
+LANG_ENGLISH "Strategy time is over"
+
+REFERENCE STRATEGY_PERIOD_STARTED
+LANG_ENGLISH "Round strategy time:"
+
+REFERENCE PRESS_TO_BYPASS
+LANG_ENGLISH "Press^3 [{+activate}] ^7to bypass"
+
+
+//******************************************************************************
+// openwarfare/_timeout.gsc
+//******************************************************************************
+REFERENCE TIMEOUT_CALLED
+LANG_ENGLISH "Timeout Called!"
+
+REFERENCE TIMEOUTS_LEFT
+LANG_ENGLISH "^3&&1^7 has called a timeout. Your team has ^3&&2^7 timeouts left."
+
+REFERENCE TIMEOUTS_NOMORE
+LANG_ENGLISH "^3&&1^7 tried to call a timeout but our team doesn't have any timeouts left."
+
+
+//******************************************************************************
+// openwarfare/_tkmonitor.gsc
+//******************************************************************************
+REFERENCE TK_WATCHFIRE
+LANG_ENGLISH "Watch your fire soldier!"
+
+
+//******************************************************************************
+// openwarfare/_utils.gsc
+//******************************************************************************
+REFERENCE AIRSTRIKE
+LANG_ENGLISH "Airstrike"
+
+REFERENCE BLOOD_LOSS
+LANG_ENGLISH "Blood loss"
+
+REFERENCE BOMB
+LANG_ENGLISH "Explosive Charge"
+
+REFERENCE DESTRUCTIBLE_CAR
+LANG_ENGLISH "Exploding car"
+
+REFERENCE EXPLODING_BARREL
+LANG_ENGLISH "Exploding barrel"
+
+REFERENCE KNIFE
+LANG_ENGLISH "Knife"
+
+REFERENCE HEAD
+LANG_ENGLISH "Head"
+
+REFERENCE HELICOPTER
+LANG_ENGLISH "Helicopter"
+
+REFERENCE LEFT_ARM
+LANG_ENGLISH "Left arm"
+
+REFERENCE LEFT_LEG
+LANG_ENGLISH "Left leg"
+
+REFERENCE LOWER_TORSO
+LANG_ENGLISH "Lower torso"
+
+REFERENCE MASSIVE_INJURIES
+LANG_ENGLISH "Massive injuries"
+
+REFERENCE NECK
+LANG_ENGLISH "Neck"
+
+REFERENCE RIGHT_ARM
+LANG_ENGLISH "Right arm"
+
+REFERENCE RIGHT_LEG
+LANG_ENGLISH "Right leg"
+
+REFERENCE UPPER_TORSO
+LANG_ENGLISH "Upper torso"
+
+
+//******************************************************************************
+// openwarfare/_visualmover.gsc
+//******************************************************************************
+REFERENCE MOVER_CMD
+LANG_ENGLISH "Command:"
+
+REFERENCE MOVER_CMD_CAT_NEXT
+LANG_ENGLISH "Next Category"
+
+REFERENCE MOVER_CMD_CAT_PREV
+LANG_ENGLISH "Previous Category"
+
+REFERENCE MOVER_CMD_ITEM_NEXT
+LANG_ENGLISH "Next Item"
+
+REFERENCE MOVER_CMD_ITEM_PREV
+LANG_ENGLISH "Previous Item"
+
+REFERENCE MOVER_CMD_SHOW
+LANG_ENGLISH "Show Item Location"
+
+REFERENCE MOVER_CMD_RESET_ITEM
+LANG_ENGLISH "Reset Item Location"
+
+REFERENCE MOVER_CMD_RESET_ALL
+LANG_ENGLISH "Reset All Locations"
+
+REFERENCE MOVER_CMD_WRITE_ITEM
+LANG_ENGLISH "Write Item To Log"
+
+REFERENCE MOVER_CMD_WRITE_ALL
+LANG_ENGLISH "Write All To Log"
+
+REFERENCE MOVER_CMD_STOCK_ITEM
+LANG_ENGLISH "Write Items Stock Location"
+
+REFERENCE MOVER_CMD_STOCK_ALL
+LANG_ENGLISH "Write All Items Stock Location"
+
+REFERENCE MOVER_CAT
+LANG_ENGLISH "Category:"
+
+REFERENCE MOVER_CAT_ALLIES_START
+LANG_ENGLISH "Allies Start Spawns"
+
+REFERENCE MOVER_CAT_AXIS_START
+LANG_ENGLISH "Axis Start Spawns"
+
+REFERENCE MOVER_CAT_ALLIES
+LANG_ENGLISH "Allies Additional Spawns"
+
+REFERENCE MOVER_CAT_AXIS
+LANG_ENGLISH "Axis Additional Spawns"
+
+REFERENCE MOVER_CAT_ATTACKER
+LANG_ENGLISH "Attacker Spawns"
+
+REFERENCE MOVER_CAT_DEFENDER
+LANG_ENGLISH "Defender Spawns"
+
+REFERENCE MOVER_CAT_NEUTRAL
+LANG_ENGLISH "Neutral Spawns"
+
+REFERENCE MOVER_CAT_FLAG
+LANG_ENGLISH "Flags"
+
+REFERENCE MOVER_CAT_RADIO
+LANG_ENGLISH "Hardpoints"
+
+REFERENCE MOVER_CAT_EXPLOSIVE
+LANG_ENGLISH "Explosives"
+
+REFERENCE MOVER_CAT_EXTRACT
+LANG_ENGLISH "Extraction Zone"
+
+REFERENCE MOVER_CAT_OBJECTIVE
+LANG_ENGLISH "Objectives"
+
+REFERENCE MOVER_ITEM_WRITE
+LANG_ENGLISH "Item written to ^1games_mp.log^7"
+
+REFERENCE MOVER_ALL_WRITE
+LANG_ENGLISH "All items written to ^1games_mp.log^7"
+
+REFERENCE MOVER_HELP
+LANG_ENGLISH "Press ^1[[{+activate}]] ^7to scroll through commands.\nPress ^1[[{+melee}]] ^7to execute a command.\nPress ^1[[{+attack}]] ^7to place selected item."
+
+
+//******************************************************************************
+// ui_mp/connect.menu
+//******************************************************************************
+REFERENCE BROUGHT2UBY
+LANG_ENGLISH "Brought to you by..."
+
+REFERENCE SERVERPOWEREDBY
+LANG_ENGLISH "Server powered by..."
+
+
+//******************************************************************************
+// ui_mp/controls_multi.menu
+//******************************************************************************
+REFERENCE	AACP_MENU
+LANG_ENGLISH	"Advanced ACP"
+
+REFERENCE ATTACH_DETACH
+LANG_ENGLISH "Attach/Detach Attachment"
+
+REFERENCE FIRING_MODE
+LANG_ENGLISH "Switch Firing Mode"
+
+REFERENCE BANDAGE
+LANG_ENGLISH "Bandage"
+
+REFERENCE BINOCULARS
+LANG_ENGLISH "Binoculars"
+
+REFERENCE CYCLE_FPSLAG
+LANG_ENGLISH "Cycle FPS/Lagometer"
+
+REFERENCE DROP_OBJECT
+LANG_ENGLISH "Drop Object"
+
+REFERENCE DROP_WEAPON
+LANG_ENGLISH "Drop Weapon"
+
+REFERENCE REDIRECT
+LANG_ENGLISH "Manual Redirect"
+
+REFERENCE SPEC_VIEWMODE
+LANG_ENGLISH "Spectator View Mode"
+
+REFERENCE TIMEOUT_CALL
+LANG_ENGLISH "Call Timeout"
+
+REFERENCE UNJAM_WEAPON
+LANG_ENGLISH "Unjam Weapon"
+
+REFERENCE ZOOM_IN
+LANG_ENGLISH "Zoom In"
+
+REFERENCE ZOOM_OUT
+LANG_ENGLISH "Zoom Out"
+
+REFERENCE STATS_TOGGLE
+LANG_ENGLISH "Toggle Statistics"
+
+
+//******************************************************************************
+// ui_mp/hud.menu
+//******************************************************************************
+REFERENCE LB_ROUND
+LANG_ENGLISH " - Round #&&1"
+
+REFERENCE LB_NO_PLAYERS
+LANG_ENGLISH "Waiting for Players"
+
+REFERENCE STATS_ACCURACY
+LANG_ENGLISH "Accuracy"
+
+REFERENCE STATS_KDRATIO
+LANG_ENGLISH "Kills/Deaths Ratio"
+
+REFERENCE STATS_KILLS
+LANG_ENGLISH "Total Kills"
+
+REFERENCE STATS_TEAMKILLS
+LANG_ENGLISH "Teamkills"
+
+REFERENCE STATS_CKILLSTREAK
+LANG_ENGLISH "Current Killstreak"
+
+REFERENCE STATS_HKILLSTREAK
+LANG_ENGLISH "Highest Killstreak"
+
+REFERENCE STATS_LONGEST
+LANG_ENGLISH "Longest Kill"
+
+REFERENCE STATS_MELEE
+LANG_ENGLISH "Melee Kills"
+
+REFERENCE STATS_HEADSHOTS
+LANG_ENGLISH "Headshot Kills"
+
+REFERENCE STATS_LONGESTHS
+LANG_ENGLISH "Longest Headshot"
+
+REFERENCE STATS_DEATHS
+LANG_ENGLISH "Total Deaths"
+
+REFERENCE STATS_SUICIDES
+LANG_ENGLISH "Suicides"
+
+REFERENCE STATS_CDEATHSTREAK
+LANG_ENGLISH "Current Deathstreak"
+
+REFERENCE STATS_HDEATHSTREAK
+LANG_ENGLISH "Highest Deathstreak"
+
+REFERENCE STATS_DISTANCE
+LANG_ENGLISH "Distance Traveled"
+
+
+//******************************************************************************
+// ui_mp/scriptmenus/class.menu
+//******************************************************************************
+REFERENCE FAVORITE_ADD
+LANG_ENGLISH "Add Server to Favorites"
+
+REFERENCE SERVER_INFORMATION
+LANG_ENGLISH "Server Information"
+
+
+//******************************************************************************
+// ui_mp/scriptmenus/eog_statistics.menu
+//******************************************************************************
+REFERENCE EOG_KILLS
+LANG_ENGLISH "Kills"
+
+REFERENCE EOG_ACCURACY
+LANG_ENGLISH "Accuracy"
+
+REFERENCE EOG_KILLSTREAK
+LANG_ENGLISH "Best Killstreak"
+
+REFERENCE EOG_LONGESTKILL
+LANG_ENGLISH "Longest Kill"
+
+REFERENCE EOG_MELEEKILLS
+LANG_ENGLISH "Melee Kills"
+
+REFERENCE EOG_HEADSHOTS
+LANG_ENGLISH "Headshots"
+
+REFERENCE EOG_LONGESTHEADSHOT
+LANG_ENGLISH "Longest"
+
+REFERENCE EOG_HARDPOINTCALLED
+LANG_ENGLISH "Times Called"
+
+REFERENCE EOG_HARDPOINTKILLS
+LANG_ENGLISH "Kills"
+
+REFERENCE EOG_DEATHS
+LANG_ENGLISH "Deaths"
+
+REFERENCE EOG_DEATHSTREAK
+LANG_ENGLISH "Highest Deathstreak"
+
+REFERENCE EOG_TEAMKILLS
+LANG_ENGLISH "Teamkills"
+
+REFERENCE EOG_BESTPLAYER
+LANG_ENGLISH "Best Player"
+
+REFERENCE EOG_WORSTPLAYER
+LANG_ENGLISH "Weakest Player"
+
+REFERENCE EOG_DISTANCE
+LANG_ENGLISH "Maximum Distance Traveled"
+
+
+//******************************************************************************
+// ui_mp/scriptmenus/ow_cac_editor.menu
+//******************************************************************************
+REFERENCE CAC_CAMO
+LANG_ENGLISH "Primary Camo"
+
+REFERENCE CAC_CLASS
+LANG_ENGLISH "Custom Class"
+
+REFERENCE CAC_PRIMARY_ATTACHMENT
+LANG_ENGLISH "Primary Attachment"
+
+REFERENCE CAC_SECONDARY_ATTACHMENT
+LANG_ENGLISH "Secondary Attachment"
+
+REFERENCE CAC_SIDE_ARM_ATTACHMENT
+LANG_ENGLISH "Side Arm Attachment"
+
+REFERENCE CAC_SUBMIT
+LANG_ENGLISH "Submit Changes"
+
+REFERENCE CAC_TITLE
+LANG_ENGLISH "Custom Class Editor"
+
+
+//******************************************************************************
+// ui_mp/scriptmenus/team_marinesopfor.menu
+//******************************************************************************
+REFERENCE BROADCASTER
+LANG_ENGLISH "Broadcaster"
+
+
+//******************************************************************************
+// ui_mp/scriptmenus/serverinfo.menu
+//******************************************************************************
+REFERENCE SERVER_INFO
+LANG_ENGLISH "INFORMATION"
+
+
+ENDMARKER

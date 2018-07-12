@@ -1,0 +1,608 @@
+ _____                  _    _             __
+|  _  |                | |  | |           / _|
+| | | |_ __   ___ _ __ | |  | | __ _ _ __| |_ __ _ _ __ ___
+| | | | '_ \ / _ \ '_ \| |/\| |/ _` | '__|  _/ _` | '__/ _ \
+\ \_/ / |_) |  __/ | | \  /\  / (_| | |  | || (_| | | |  __/
+ \___/| .__/ \___|_| |_|\/  \/ \__,_|_|  |_| \__,_|_|  \___|
+      | |               We don't make the game you play.
+      |_|                 We make the game you play BETTER.
+
+           Website: http://openwarfaremod.com/
+
+
+OpenWarfare v4.180.2482 (April 30, 2011)
+- NEW: New gametype "Time Greed" and "Greed" have been added.
+- NEW: Added ranked server option with class limitations.
+
+- BUG: Fixed issue with Hardpoint reminder showing once even when it was disabled.
+- BUG: Hide health bar when rounds or game ends.
+
+
+OpenWarfare v4.170.2474 (February 13, 2011)
+- NEW: Added HNS support for Visual Mover.
+
+- CHG: Added back support for Killhouse map.
+- CHG: Added logging for "Return to Spawn" and "Point Out" player in AACP.
+       
+       
+OpenWarfare v4.169.2469 (November 13, 2010)
+- NEW: New gametype "Hide And Seek" added (only stock maps).
+- NEW: Added sudden death options to "One In The Chamber" gametype.
+- NEW: Added new module to show remaining lives to players when lives are
+       limited (forced on One In The Chamber).
+- NEW: Added new module to play a sound when players connect or disconnect
+       from the server.       
+
+- CHG: Streamlined a little bit the code to hide/show the HUD to the player
+       during match start times.
+- CHG: Removed the waiting for the ready-up period to be over for the server
+       empty check to start counting seconds.
+- CHG: Prevent people from switching teams using the "Auto Assign" option 
+       where this can give an advantage to the player in certain gametypes. 
+       
+- BUG: Fixed a problem when determining the last alive player in OITC and LMS.             
+
+
+OpenWarfare v4.168.2399 (September 11, 2010)
+- NEW: Added switching firing modes for M16, M4 and AK47 (disabled).
+- NEW: Added "Sharp Shooter" gametype based on Black Ops.
+- NEW: Added "One In The Chamber" gametype based on Black Ops.
+- NEW: Added visual guide support for the Sharpshooter and One In The Chamber gametypes.
+
+- CHG: Tweaked range finder module and the FTAG gametype.
+- CHG: Tweaked the position of the frozen player based on its ragdoll final
+       location instead of where it was killed.  
+- CHG: Tweaked how the score is handled in Freeze Tag to be more realtime.     
+
+- BUG: Fixed a bug with dropping weapons in ranked mode.
+- BUG: Fixed an issue with weapon limits when switching from class to class or 
+       from spectator to a team.
+- BUG: Fixed Visual Guide so now it runs like it's intended to.	  
+- BUG: Fixed Visual Guide problem when starting in one gametype and performing
+       a map_restart into the vg gametype.
+- BUG: Fixed CAP to not interfere with prematch periods.	   
+       
+       
+OpenWarfare v4.167.2362 (August 10, 2010)
+- CHG: VIP will only get the forced weapon to prevent an engine bug with mantling.
+
+- BUG: Hide the healthbar when the scoreboard is showing or the player is spectating or
+       flashbanged.
+       
+       
+OpenWarfare v4.166.2359 (July 31, 2010)
+- NEW: Added "Live Broadcast" functionality from OpenWarfare:PCP.
+- NEW: Added a server check to make sure there are no .IWD files inside the mod
+       folder that don't belong to the mod.
+- NEW: Added code to remove the unused spawns to prevent the error of not more
+       free entities left.
+
+- CHG: Better handling for the scorebot variables.
+
+- BUG: Fixed buttons in "Create a class" feature as they were not working correctly
+       in widescreen resolutions.
+
+
+Version 1.6.5 (SVN# 2328 - January 30, 2010)
+- NEW: Added new variable for the AACP to take the gametypes and map names directly
+       from the current map rotation instead.
+- NEW: Added new variable to AMVS to prevent players from voting the same map that
+       just finished.
+- NEW: Redesign and implementation of the new visual mover and visual guide. 
+	- BEL support
+	- Visual Guide is now a gametype. Visual Mover is separate module.
+	- Internal Configuration Counter for Visual Mover
+	- 2 reticle types for Visual Guide - Circle Effect or model of current item.
+	- New Visual Guide Menu
+	- Added and updated Visual Guide and Visual Mover dvars and configs
+- NEW: Added an option to control players illegally using clan tags.
+- NEW: Added variables to control the special effects and text display when
+       objectives are captured, dropped, taken, etc.
+              
+- CHG: Added new option in Retrieval to control the auto reset time of objectives.
+- CHG: Added new master variable for Admin GUIDs so they need to be entered only
+       once.
+- CHG: Added distance traveled statistic to real time statistics as well as the
+       end of game statistics.
+- CHG: Added variable to control public matches where the server password missing
+       and the /record match reminders will not be shown.
+- CHG: When the blackscreen is enabled for spectators the screen will automatically
+       be active also when a gametype with number of lives is being played and the
+       player has used all the available lives.
+- CHG: A non-pistol weapon can also be forced on the VIP now in Assassination.       
+- CHG: The player destroying the bomb in Search & Destroy will receive a "defuse"
+       score.
+- CHG: Added a timer to CAP so players only have x amount of seconds in the interface
+       - Added player protection while in CAP Interface
+       - Text for CAP now shows for as long as CAP is available
+ 
+- BUG: Fixed an issue with an internal variable in AVMS having more than 1024 
+       characters if a the rotation contains a lot of maps.
+- BUG: Allow combination of winner gametype and default map when the winner gametype
+       was the default gametype.
+- BUG: Fixed an issue where distance was not being calculated for players that were in
+       Last Stand.       
+                          
+
+Version 1.6.4 (SVN# 2258 - November 21, 2009)
+- NEW: Added new option in extended obituaries to show them only to the victim and
+       the attacker.
+- NEW: Added new mode to CTF where players will have to return their flag to their
+       base if captured by the enemy (Capture the Flag Back).
+- NEW: Added new variable to Retrieval to be able to increase the spawn time of
+       defenders.
+- NEW: Added new variable to control the slots that will be reserved for clan members.
+- NEW: Added new gametype Behind Enemy Lines. Check behindenemylines.cfg for more details.
+- NEW: Added new option to display statistics at the end of the game.
+- NEW: Added new option to show the players the presense of a full admin or clan players
+       in the server via the scoreboard.
+       
+- CHG: All the server variables will reset now on ruleset activation or deactivation.
+- CHG: More than one life can now be set for LMS and LTS.
+- CHG: Added logging capabilities to the Advanced Map Voting System.
+
+- BUG: Fixed a problem with automatic map fast restarts.
+- BUG: Fixed an issue where players could switch to weapons while destroying the bomb in 
+       Search & Destroy.
+- BUG: Fixed a problem with setting the next map via the AACP in round based games where
+       map voting was not being skipped.
+- BUG: Fixed a problem where the pulse was active during last stand.
+
+
+Version 1.6.3 (SVN# 2172 - October 10, 2009)
+- NEW: New option added to AMVS to generate the voting options based on the 
+       current server's rotation.
+- NEW: New map rotation control system (MRCS) to control the server's rotation
+       based on number of players in the server.
+- NEW: New gametype Last Man Standing (LMS) based on Free-for-all.
+- NEW: New gametype Last Team Standing (LTS) based on Team Deathmatch.
+- NEW: Added new variable to Assassination so only clan members can be chosen
+       as the VIP.
+- NEW: Added new variable to Capture and Hold to control the respawn of players
+       owning the flag.
+- NEW: Added support for 3rd person spectate (new bind has been added to switch
+       from 1st person to 3rd person).
+- NEW: Added a sudden death like Sabotage to Capture the Flag when scr_ctf_endround_on_capture
+       is set to "1".
+- NEW: Added a sudden death like Sabotage to Capture and Hold when scr_ch_chmode
+       is set to "0".
+- NEW: An advanced Overtime module has been added to the mod to control an extra
+       round when the game finishes in a tie.
+- NEW: Added support for team based weapons where each team will have access to certain
+       weapons only.
+- NEW: Added new variable to control Claymores' arming time. Claymores will not go off
+       before the time passes.
+- NEW: Customize-A-Player Interface. Select between the 5 friendly models if the gametype is 
+       team based or the 10 friendly and enemy models that are loaded with the map if not team based.
+- NEW: Added new option in Freeze Tag to melt the iceberg to show unfreeze progress.
+- NEW: Added Previous and Next arrow buttons in the CAC Editor for easier and quicker navigation.
+- NEW: Added new option to black spectators' screens so they can't see the location of players
+       in the server when they connect.
+- NEW: Added an option to check for invalid Claymore plants based on distance between the player and
+       the Claymore.
+- NEW: New gametype Retrieval where the attackers need to retrieve two objectives from the map.
+- NEW: Added a GUID control system for tournaments where not registered GUIDs will be automatically
+       disconnected from the server.
+- NEW: New variable to control dead chat has been added.
+- NEW: Added support for Last Man Standing, Last Team Standing, and Retrieval to Visual Mover.
+- NEW: Real time player statistics to show information to the player like accurary, k/d ratio,
+       headshots, longest shot, melee kills, etc.
+       
+- CHG: Changed the AMVS to allow a player to leave the server during the map voting process.
+- CHG: Removed scr_visual_mover_random_config dvar.
+- CHG: Added a new variable to the visual mover to supply the game with how many configurations
+       a map and its corresponding gametype have. 
+- CHG: All visual mover configuration (item) dvars will now have a "_<#>" at the end 
+       starting at 0 or 1.
+- CHG: For visual mover blank or " " dvars are no longer needed for each configuration.
+- CHG: Moved some dvars from the mover.cfg to all the mover/gametype folders. Provided descriptions
+       of these variables and examples for each gametype.
+- CHG: Removed the old mover written by BionicNipple.
+- CHG: The model for the VIP player in Assassination will change now.
+- CHG: New option added in S&D to still show both bomb sites to the defenders even when one has
+       been disabled.
+- CHG: Re-aligned the images on the map loading screen and replaced the default clanlogo.iwi image.
+- CHG: Reduced number of image resources (2 sponsor logos were removed and simplified the health bar
+       image)
+                     
+- BUG: Fixed a problem with hiding scores in TDM always.
+- BUG: Fixed a problem with sd_sdmode "1" where the proper icons where not being set
+       after the bomb was planted.
+- BUG: Fixed a stock bug where concussion grenades don't affect players using the Juggernaut perk.
+- BUG: Fixed the explosives model name to be attached to the player when the defenders steal the
+       the bomb from the attackers.
+- BUG: Fixed a problem with resetting the day cycle at the beginning of each round or map.
+- BUG: Fixed a bug where the winner in Gun Game was not properly showing when the time limit was
+       reached.
+- BUG: Fixed a problem with custom maps using 8 HQ locations in KOTH that was preventing the game
+       to create an extra object location icon.
+- BUG: Fixed an infinite loop in auto balance where none of the players from the team with more
+       players could be auto-balanced.
+- BUG: Fixed a problem with setting the VIP's health in Assassination higher than the game's health.
+
+
+Version 1.6.2 (SVN# 1971 - August 25, 2009 )
+- NEW: Added a variable to control the level of gravity in the game.
+- NEW: Clans can have their own logo now during a map load for players to see.
+- NEW: Added range finder to binoculars.
+- NEW: Added new features to the visual mover:
+       - Random Configuration Selector
+       - Single Configuration Selector
+       - Use mover guide and mover at same time.
+       - All gametypes supported!
+       - Can add multiple locations for a single item except for spawns, and hq items
+       - In mover guide, if player joins a team and then goes back to spectate, then
+         he will be able to move freely now.
+       - Write to the games_mp.log the stock coords of an item or all items.
+       - Added the previous category and previous item commands 
+- NEW: Added extra setting to reset the day cycle on new round.
+- NEW: New virtual rank system based on player's score.
+- NEW: Added variable to control the score given to players for unfreezing teammates.
+- NEW: Added a new variable to control the time limit during Sabotage's sudden death.
+
+- CHG: Increased the time to rotate the map when empty to 3600 seconds.
+- CHG: Players will not suffer the pulse effect when frozen.
+- CHG: The configs/leagues.gsc file has been moved into the rulesets folder inside
+       the z_openwarfare.iwd to prevent listen server from failing.
+- CHG: The minimum value for strategy period is now 5 seconds.
+
+- BUG: Stationary turrets will be removed from maps in Freeze Tag to prevent
+       players from using them when they are frozen.
+- BUG: Frozen players in Freeze Tag will remain frozen when they switch teams.
+- BUG: Fixed a few bugs in the visual mover that might or might not have been noticed
+       in first release.
+- BUG: Deactivated map control module when a listen server is started.
+- BUG: Fixed the bomb carry icon when the bomb was planted in Sabotage.
+- BUG: Fixed a problem with Quick Actions that was not being activated for bandaging.
+- BUG: Fixed an issue with scores not showing at the end of the game when the scoreboard was 
+       activated and the hide scores option was enabled.
+	
+
+Version 1.6.1 (SVN# 1891 - July 29, 2009)
+- NEW: Added an option for frozen players to be able to look around instead of
+       being forced with a fixed view.
+- NEW: Added an option to show information about how long the player was frozen
+       and which teammates helped him/her unfreeze.
+- NEW: Voting at the end of the game will not activate if enabled when the admin
+       manually sets the next gametype/map combination through the AACP.      
+- NEW: New option to set the maximum distance a player can travel while spawn
+       protected.
+- NEW: Added a new variable to completely disable bullet penetration.
+- NEW: Added a new option to punish players shooting at spawn protected players.
+- NEW: Added a new option to the AACP to manually redirect players to another 
+       server.
+- NEW: Added new options for Gun Game for players to automatically level up.
+- NEW: Players will have the Gun Game on the scoreboard now.
+- NEW: Added a variable to control the extraction time in Assassination.
+- NEW: New option where players can break their ankles if they fall and take 
+       damage reducing their speed 75%.
+- NEW: New option where players' speed will be reduced if shot on the upper part
+       of a leg.
+- NEW: New Fitness Control System (FCS) to control player running, walking, 
+       and jumping.
+- NEW: Added a countdown timer to ready-up to force a match/round start even if
+       the players are not ready.
+- NEW: New Visual Gametype Mover replacing the old mover code. You can move spawns, 
+       objective bombsites and flags, explosives, and the HQ hardpoints. Visualize 
+       and create your own gametype experience!
+              
+- CHG: Scores will be completely hidden in gametypes where score indetifies a
+       kill when scores are hidden.
+- CHG: Added a condition to prevent a player from getting his class resetted on
+       team switch if the player can carry over his/her loadout without affecting
+       any class/weapon limits.
+- CHG: Sniper rifles with increased range can now shoot barrels to set them on
+       fire.
+               
+- BUG: Added a check for idle monitor to prevent a possible syntax error setting
+       a timer to a negative value.
+- BUG: Fixed a problem with variables in S&D.
+- BUG: Fixed anti-camping to make sure it doesn't activate once the player is
+       unfrozen in Freeze Tag.
+- BUG: Added a condition to the vote counter in the AMVS to make sure items with
+       no votes are taken into consideration when there are no votes at all.
+- BUG: Fixed a problem with the return to spawn AACP function returning the player
+       to the admin's last spawn point instead of the player's.
+- BUG: Fixed a health system bug where the wrong dvar was being used for health regen method.
+- BUG: Fixed a problem with 3rd person view switching to 1st person when the player
+       was killed.
+- BUG: Fixed the match results for Gun Game.
+- BUG: Fixed a bug with AMVS using allowing only one gametype.
+       
+
+Version 1.6.0 (SVN# 1779 - July 4, 2009)
+- NEW: Added the option to dynamically attach/detach an existing attachment.
+- NEW: Added a new center option for sponsor logos and a new option for sponsor 
+       logos to show only when the player is spectating.
+- NEW: Amount of bandages in the inventory will now show when bandaging is 
+       enabled.
+- NEW: Team names and icons can now be customized to personalized teams.
+- NEW: Options during class creation can be locked now so players won't be able 
+       to change them.
+- NEW: New option "Return to Spawn" has been added to the Advanced ACP.
+- NEW: Daytime simulation has been added to control the time of day in the map.
+- NEW: Re-implementation of the stock battle chatter functionality to give more 
+       control to the server admin.
+- NEW: Added the ability to control the values for com_maxfps and cl_maxpackets 
+       on the clients.
+- NEW: Added Binoculars.
+- NEW: New Assassination gametype where players in the attacking team need to 
+       protect and escort the VIP to an extraction zone while the other team 
+       tries to eliminate him.
+- NEW: The health system has been re-written from scratch. Players can now heal
+       themselves as well as heal or bandage teammates. Health packs can now have
+       a yellow glow enabled when they are dropped via config setting. All settings
+       are configurable.
+- NEW: Ability to define "safe zones" around objectives where explosives can't 
+       be planted.
+- NEW: New "smart" reserved slot system to handle full servers including 
+       automatic redirect for the disconnected players. 
+- NEW: Ability to play the entire game in 3rd person view. Players will be switched
+       automatically to 1st person when aiming down the sights.
+- NEW: GunGame gametype based on DM.
+- NEW: Re-implementation of the FreezeTag gametype.
+- NEW: Advanced Map Voting system to be able to vote for the next map once the 
+       game is finished.
+- NEW: OW Create-A-Class allows the editing of custom classes while in-game on ranked
+       versions of the mod, and the ability to use the new loadout on next spawn without
+       a map restart. 
+- NEW: For Search and Destroy, the ability for the defending team to accidently 
+       destroy the objectives they are defending if the objectives take too much 
+       damage or too many hits. Defenders can also destroy the attackers bomb and 
+       depending on the setting, the game will end or the attackers will have to fight
+       the rest of the round to win, but won't be able to plant. Also, there is now 
+       a quick defuse option where a player can cycle through colored text representing 
+       wires. Select the wrong color and boom! Otherwise, enjoy the victory!
+- NEW: New option "Set as Next Map/Gametype" has been added to the Advanced ACP.
+
+- CHG: Load of rulesets can now be controlled through the Advanced ACP.
+- CHG: A message has been added during the Ready-Up period to remind players 
+       about recording the game.
+- CHG: Time for server banners to show can now be controlled.
+- CHG: XP points on the center of the screen can now be enabled also in Hardcore 
+       mode.
+- CHG: Gametypes Domination and Headquarters support rounds now.
+- CHG: OpenWarfare standard public and match rulesets have been added to the 
+       z_openwarfare.iwd file.
+
+- BUG: Fixed a bug where players could cause bleeding on their team mates even 
+       when friendly fire was off.
+- BUG: Players capturing objectives will not be considered camping anymore.
+- BUG: Adjusted limits for WRM that were confusing to the server admins.
+- BUG: Fixed an issue with team status icons when one team was completed 
+       eliminated.
+- BUG: Fixed a problem with stock game where the scores were not shown correctly
+       to spectators hitting the scoreboard key.
+- BUG: Fixed an issue for pistols only setups so players will spawn with the correct
+       model and their secondary weapon active.
+       
+
+Version 1.5.4.1 (SVN# 1434 - April 24, 2009)
+- NEW: Added a new variable to also disable 2D icons (scr_hud_show_2dicons in 
+       gameplay.cfg).
+- CHG: The Advanced ACP will now write log entries to games_mp.log about actions
+       executed.
+- CHG: The Advanced ACP can now show the Server Information screen when a player 
+       is forced into spectator. Variable scr_aacp_sws_show_welcome_screen in 
+       advancedacp.cfg.
+- BUG: Fixed a stock problem for elimination type TDM.
+- BUG: Fixed anti-bunny options 3 and 4.
+- BUG: Fixed a problem with auto-balance after round end.
+- BUG: Fixed problem with creating/changing custom classes when reaching 
+       1,000,000 XP points.       
+       
+ 
+Version 1.5.4 (SVN# 1417 - April 19, 2009)   
+- NEW: Hardpoints can now be set to use number of total kills instead of 
+       killstreak. Please set hardpoints to cycle when set to use total kills. 
+       Variable scr_game_hardpoints_mode in hardpoints.cfg.
+- NEW: Option to show the amount of killstreak for a player. Variable 
+       scr_announce_killstreak in hardpoints.cfg.
+- NEW: Stock headshot sounds can now be disabled. Variable 
+       scr_play_headshot_impact_sound in gameplay.cfg.
+- NEW: Re-implementation of WWM. Please check wwm.cfg for more details.
+- NEW: New Advance Admin Control Panel. Various map and player control options. 
+       Please check advancedacp.cfg for more details.
+- NEW: Re-implementation of Use Magic Key as Quick Actions... Both 
+       functionalities are working in parallel. Use Magic Key will be removed 
+       on 1.6.0. Please test Quick Actions by deactivating scr_usekeymagic_enable 
+       and activating scr_quickactions_enable.
+- NEW: New mode for Capture and Hold. Variable scr_ch_chmode in gametypes.cfg.
+- NEW: New module to get rid of bodies during the game. Variables 
+       scr_bodyremoval_enable and scr_bodyremoval_time in openwarfare.cfg.
+- NEW: Added new variable to control weapon tracers. Variable 
+       scr_fire_tracer_chance in gameplay.cfg.
+- NEW: Servers can now disable the use of the console for clients via 
+       sv_disableClientConsole.
+- NEW: Added new variable to control the time between jams for the same player. 
+       Variable scr_weaponjams_gap_time in gameplay.cfg.
+- NEW: Ability to control the zoom levels when sniper zoom is enabled. Variables 
+       scr_sniperzoom_lower_levels and scr_sniperzoom_upper_levels in gameplay.cfg.
+- NEW: New module to add fog to any map automatically. Variables 
+       scr_fogofwar_enable and scr_fogofwar_density in openwarfare.cfg.
+- NEW: Added an option where players will be able to change their direction 
+       during strategy period. Variable scr_match_strategy_allow_movement in 
+       openwarfare.cfg.
+- NEW: Players will be reminded now if they have a hardpoint when spawning. 
+       Reminder can also be set to remind the player every certain amount of 
+       time via variable scr_hardpoint_show_reminder.
+- NEW: Maps can now be set to rotate automatically when empty for certain amount 
+       of time. Variables scr_rotateifempty_enable, scr_rotateifempty_time, and 
+       scr_rotateifempty_grace_period in openwarfare.cfg.
+- NEW: Damage from vehicles and barrels can now be disabled without activating WDM. 
+       Variables scr_barrel_damage_enable and scr_vehicle_damage_enable in 
+       gameplay.cfg.
+- NEW: Added range finder module to display distance to target for sniper rifles. 
+       Variable scr_rangefinder_enable in gameplay.cfg.
+- NEW: A limit for smoke grenades can now be set for teams. Variable smoke_grenade_limit
+       in classes.cfg.
+
+- CHG: Optimized how player variables are set in the welcome screen.
+- CHG: Timeouts can now be up to 5 minutes long.
+- CHG: Optimization to the team status module.
+- CHG: Stance icon has been moved to the left of the screen.
+
+- BUG: Fixed a bug where weapons were being re-enabled by anti-bunny hopping.
+- BUG: Weapons don't jam anymore while using a mounted MG.
+- BUG: Server will not crash anymore when using variable scr_sd_bombsites_enabled 
+       and the custom map only supports one bombsite.
+- BUG: Fixed an issue related to delays and hardpoints.
+- BUG: Fixed an issue with Ready-Up and CTF.
+
+
+Version 1.5.3 (SVN# 1308 - March 6, 2009)
+- NEW: Added RCON functionality.
+- NEW: Added variable scr_game_spectators_guids. When set to "1" only those 
+       players whose GUIDs are inside this variable will get the spectate type 
+       set in scr_game_spectatetype_spectators.
+- NEW: Added logging of events like player joined team, flag taken, flag captured, 
+       hq captured, hq destroyed, bomb planted, bomb defused (based on WaW patch 1.3).
+- NEW: Renamed variable scr_sd_bomb_notification_disable to 
+       scr_sd_bomb_notification_enable to prevent any confusion.
+- NEW: Added variable scr_countdown_sounds to play count down sounds when the 
+       round is about to finish. Possible values (any combination of and separated 
+       by ";") = 10min, 5min, 4min, 3min, 2min, 1min, 30sec, 15sec, countdown (for 
+       example, set scr_countdown_sounds "10min;5min;4min;3min;2min;1min;30sec;15sec;countdown" ).
+
+- CHG: Adjusted some additional stock modules to reduce network traffic as well as 
+       server resources utilization during player connections.
+- CHG: Added variable scr_teambalance_round_based_games to force team balance in 
+       round based gametypes.
+
+- BUG: Fixed spectate type "0" to prevent players from spectating other players 
+       during non-teambased games.
+- BUG: Fixed black screen HUD element setting that was causing the black screen to 
+       go away when the screen switched to spectate other player.
+- BUG: Fixed rank function to prevent people from getting thousand of XP points at 
+       the end of the round between certain rank levels.       
+       
+Version 1.5.2 (SVN# 1254 - March 1, 2009)    
+- NEW: Added WLM (Weapon Location Modifiers) to decrease/increase the damage done
+       according to the location of the hit (new configuration file wlm.cfg has 
+       been added).
+- NEW: Damage from barrels and vehicles can now be adjusted through the WDM module 
+       (added variables scr_wdm_vehicles and scr_wdm_barrels to wdm.cfg).
+- NEW: Gametype related variables can now use the OW format of adding the map name 
+       at the end to support different values in different maps.
+- NEW: Deactivated hold breath hint from non-hardcore games also.
+- NEW: Added scr_antilag variable (openwarfare.cfg).
+
+- CHG: Variables sv_fps and sv_maxRate have been removed from the configuration 
+       file and are now being set inside the mod to prevent server admins changing 
+       them and experiencing weird issues.
+- CHG: Updated default sponsor logos.
+
+- BUG: Fixed next map rotating message when switching maps manually.
+- BUG: Fixed issue with virtual ranks.
+
+
+Version 1.5.1 (SVN# 1224 - February 17, 2009)
+- NEW: Added variable scr_power_rank_delay for servers with slow connections.
+- NEW: Variables g_force_autoassign has been renamed to scr_force_autoassign. 
+       Variable accepts 3 possible values now: "0" (disabled), "1" (enabled for 
+       everyone), and "2" (enabled for everyone except clan members).
+- NEW: Added variable scr_force_autoassign_clan_tags to define the clan tags that 
+       will be excempt from the forced auto-assign when scr_force_autoassign has 
+       been set to "2".
+
+- CHG: Added serialization to function updateClassLimits(). Better use of server 
+       resources.
+- CHG: Added a reset of player's rank level based on his/her XP points.
+- CHG: Added a delay of 2 seconds before starting to regenerate a player's health 
+       when taking damage.
+- CHG: Increased maximum spawn protection time to 60 seconds (variable 
+       scr_spawn_protection_time).
+- CHG: Delayed setting of client dvars until the player joins a team where possible. 
+       This will reduce the amount of data between the client and the server at 
+       connect time.
+
+- BUG: Fixed a problem with PERK4 "Lead Foot" that was always disabled in unranked 
+       mode (WaW).
+- BUG: Fixed standard scores when new scoring system is not enabled.
+
+       
+Version 1.5.0 (SVN# 1219 - February 15, 2009)
+- NEW: Option to setup the distance that players in the same team need to be for 
+       the friendly tags to show up on screen.
+- NEW: A new variable has been created to have a complete spectate type for 
+       spectators. This will allow servers to have certain spectate type for players 
+       assigned to a team and certain spectate type for people that are just 
+       spectating the game.
+- NEW: The jump height can now be controlled and set to higher or lower values 
+       allowing players to jump into currently not accessible areas or directly 
+       disable jumping in the game.
+- NEW: New scoring system where the server admin can setup how many points players 
+       will get for each action within the game.
+- NEW: Ability to disable the score bar in non-hardcore games.
+- NEW: Option to display a server message when a player joins a team or switches 
+       to spectator.
+- NEW: Option to enable the stance indicator so players can see if they are prone 
+       or crouched.
+- NEW: New sponsors module that displays sponsor logos during the ready-up period 
+       or the first time the player spawns.
+- NEW: Option to protect clan members to be auto-balanced.
+- NEW: Option to show all the active mod files in the server together with their 
+       respective checksum during the ready-up period to make sure files have not 
+       been tampered.
+- NEW: Option to enable a dvar change monitoring functionality that will let players 
+       know if a dvar has changed after a ruleset has been loaded in the server.
+
+- CHG: OW ranking system has been adjusted again. There will only be one extra rank 
+       level for each prestige mode now (MW up to rank 65 and WaW up to rank 75). 
+       The amount of XP points needed to reach the prestige levels have been 
+       increased and players will now be able to collect XP points up to 1,000,000.
+- CHG: Increased the amount of RPGs/Bazooka shells a player can get when spawning.
+- CHG: The bleed rate has been increased so a slower rate can now be set for 
+       servers where players have lower health.
+- CHG: Option to disable the display of hardpoints like Helicopter, Dogs, etc as 
+       well as vehicles like tanks (only in WaW) in the UAV/Radar.
+- CHG: Option to allow only clan members to access voting options.
+- CHG: Added back the x2 and x1 zoom levels for sniper rifles when the sniper zoom 
+       functionality has been activated.
+- CHG: Optimized the HUD elements creation to prevent any problems reaching the 
+       server limits.
+- CHG: Option to enable line of sight for Bettys so they are not triggered through 
+       walls.
+- CHG: Ability to allow perks based on players' classes.
+- CHG: Added the option to use the use/melee keys to control sniper zoom levels 
+       in addition to the existing binds.
+
+- BUG: Fixed a bug where the anti-camping option to show the bomb carrier in 
+       Sabotage could not be set.
+- BUG: Fixed a bug where players waiting to spawn (in S&D or HQ) were consider 
+       to be idling and switched to spectators.
+- BUG: Fixed a bug introduced in 1.4.0. where the delay of weapons at the 
+       beginning of the round as well as the delay of sprinting were not working.
+- BUG: Fixed the names of internal variables in the WWM and WDM modules in WaW.
+- BUG: Fixed a problem with classes limits where no players were able to select 
+       any class if all the enabled classes had reached their limit.
+- BUG: Fixed a problem where the start spawns were not being used in sniper maps.
+      
+       
+Version 1.4.0 (SVN# 1078 - December 14, 2008)
+- NEW: New gametype "Capture and Hold" (CH) that works with any map that supports 
+       Sabotage.
+- NEW: Option to limit the amount of C4s or claymores that each team can plant and 
+       have active at the same time.
+- NEW: Ability to enable "dog tags" where you can see whose body is the one laying 
+       on the floor.
+- NEW: Option to force the use of initial spawns in Team Deathmatch to ensure 
+       players spawn in the correct side in sniper-type maps.
+- NEW: Number of players using the grenade launcher can now be limited in unranked mode.
+- NEW: Ability to control if the map will be fast restarted or if the server will 
+       rotate to the next map in the rotation at the end of the game. 
+
+- CHG: Implementation of a code to prevent players from getting killed by 
+       spectators' grenades.
+- CHG: Changed the way extended obituaries are shown to the player so they are not 
+       lost between the server messages. Also added another option to show the 
+       extended obituaries to all the players in the server.
+- CHG: Damage from falls will not cause bleeding anymore.
+- CHG: Increased the range of all the sniper rifles using their default scopes 
+       (not Acogs).
+- CHG: New implementation for Big Brother Bot functionality.
+- CHG: Option to turn the players invisible during spawn protection.
+
+
+Version 1.3.0 (SVN# 919 - November 2, 2008)
+- INITIAL VERSION FOR THIS LOG

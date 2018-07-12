@@ -1,0 +1,301 @@
+//******************************************************************************
+//  _____                  _    _             __
+// |  _  |                | |  | |           / _|
+// | | | |_ __   ___ _ __ | |  | | __ _ _ __| |_ __ _ _ __ ___
+// | | | | '_ \ / _ \ '_ \| |/\| |/ _` | '__|  _/ _` | '__/ _ \
+// \ \_/ / |_) |  __/ | | \  /\  / (_| | |  | || (_| | | |  __/
+//  \___/| .__/ \___|_| |_|\/  \/ \__,_|_|  |_| \__,_|_|  \___|
+//       | |               We don't make the game you play.
+//       |_|                 We make the game you play BETTER.
+//
+//            Website: http://openwarfaremod.com/
+//******************************************************************************
+
+#include "ui/menudef.h"
+#include "ui_mp/common_macro.inc"
+#include "ui_mp/menustyle.inc"
+#include "ui/choices_setup_common.menu"
+
+{
+	#undef COLOR_INFO_YELLOW
+	#define COLOR_INFO_YELLOW 0.95294 0.72156 0.21176 1
+	#define COLOR_INFO_ORANGE 0.851 0.527 0.105 1
+
+	// ANIMATION SPEEDS
+	#define POPUP_MOVE_SPEED		400 	//milliseconds
+	#define ANIMATE_DISTANCE		400		//units
+	
+	// top bar position/size
+	#define WIDTH_TOPBAR			540
+	#define HEIGHT_TOPBAR			34
+	#define ORIGIN_TOPBAR_X			0 //(-(WIDTH_TOPBAR/2))
+	#define ORIGIN_TOPBAR_Y			0 //80
+	#define ORIGIN_TOPBAR			ORIGIN_TOPBAR_X ORIGIN_TOPBAR_Y
+	#define RECT_TOPBAR				ORIGIN_TOPBAR WIDTH_TOPBAR HEIGHT_TOPBAR
+	#define RECT_TOPBAR_ALIGNED 	RECT_TOPBAR HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP	
+
+	// main frame position/size
+	#define WIDTH_MAINFRAME			WIDTH_TOPBAR
+	#define HEIGHT_MAINFRAME		345
+	#define ORIGIN_MAINFRAME_X		ORIGIN_TOPBAR_X
+	#define ORIGIN_MAINFRAME_Y		(ORIGIN_TOPBAR_Y+HEIGHT_TOPBAR+6)
+	#define ORIGIN_MAINFRAME		ORIGIN_MAINFRAME_X ORIGIN_MAINFRAME_Y
+	#define RECT_MAINFRAME			ORIGIN_MAINFRAME WIDTH_MAINFRAME HEIGHT_MAINFRAME
+	#define RECT_MAINFRAME_ALIGNED	RECT_MAINFRAME HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+
+	// colors/border
+	#define EOG_BASE_COLOR			0.25 0.25 0.27 1
+	#define EOG_BG_COLOR			0.1 0.1 0.12 0.85
+	#define EOG_SHINE_COLOR			0.9 0.9 0.9 0.45
+	#define EOG_BORDER_SIZE			1
+	#define EOG_BORDER_COLOR		0.35 0.35 0.37 1
+	#define EOG_BORDER				WINDOW_BORDER_RAISED
+	#define EOG_TEXT_COLOR			0.7 0.7 0.72 1
+	#define EOG_TEXT_COLOR_LOSE		1.0 0.0 0.0 1
+	#define EOG_TEXT_COLOR_WIN		0.0 1.0 0.0 1
+	#define EOG_TITLE_COLOR			COLOR_TITLE
+	#define EOG_INNER_COLOR			0 0 0 0.3
+	
+	#define TITLE_BG_COLOR_OFF		1 1 1 0.075
+	#define TITLE_BG_COLOR_ON		1 0.8 0.4 0.6
+		
+	#define ZERO_TO_ONE				milliseconds()-dvarInt(ui_time_marker)
+	#define UNIT_GROWTH				sin( sin( min( ZERO_TO_ONE, POPUP_MOVE_SPEED )*(1.5707/POPUP_MOVE_SPEED) )*1.5707 )
+	
+	#define FRAME_ANIMATE( offset ) \
+		offset-offset*UNIT_GROWTH
+
+	#define PC_BUTTON( textArg, prect1, actionArg, visArg )\
+		FRAMING_VIS( prect1, visArg )\
+		PREPROC_TEXT_DRAW( prect1, 0 0, exp text(textArg), TEXTSIZE_DEFAULT, 0, 1, ITEM_ALIGN_MIDDLE_CENTER, 1 1 1 0.15 textfont UI_FONT_OBJECTIVE visible when( visArg ); )\
+		PREPROC_TEXT_DRAW( prect1, 0 0, exp text(textArg), TEXTSIZE_DEFAULT, 0, 1, ITEM_ALIGN_MIDDLE_CENTER, COLOR_TITLE textfont UI_FONT_OBJECTIVE visible when( visArg ); name highlighted_next )\			
+		itemDef { \
+			type			ITEM_TYPE_BUTTON \
+			rect			prect1 0 0\
+			text			""\
+			textfont		UI_FONT_NORMAL \
+			textAlign		ITEM_ALIGN_MIDDLE_CENTER \
+			visible			when( visArg );\
+			onfocus			{ show highlighted_next; }\
+			leavefocus		{ hide highlighted_next; }\
+			mouseEnter 		{ play "mouse_over"; }\
+			action 			{ play "mouse_click"; actionArg }
+	}
+
+	#define FRAMING( prect ) \
+		FRAMING_VIS( prect, 1 )
+
+	#define FRAMING_VIS( prect, visArg ) \
+		PREPROC_SHADER_DRAW( prect, 0 0, "white", EOG_BASE_COLOR, EOG_BORDER, EOG_BORDER_SIZE, 0 0 0 0 visible when(visArg) )\
+		PREPROC_SHADER_DRAW( prect, 0 0, "white", EOG_BG_COLOR, EOG_BORDER, EOG_BORDER_SIZE, EOG_BORDER_COLOR visible when(visArg) )\
+		PREPROC_SHADER_DRAW( prect, 0 0, "line_horizontal", EOG_SHINE_COLOR, EOG_BORDER, EOG_BORDER_SIZE, 0 0 0 0 visible when(visArg) )
+	
+	menuDef	
+	{
+		name 			"eog_statistics"
+		exp				rect X (-(WIDTH_TOPBAR/2)) 
+		exp				rect Y (HEIGHT_TOPBAR+FRAME_ANIMATE(ANIMATE_DISTANCE))
+		rect			0 0 WIDTH_TOPBAR (HEIGHT_TOPBAR+HEIGHT_MAINFRAME+HEIGHT_TOPBAR) HORIZONTAL_ALIGN_CENTER VERTICAL_ALIGN_TOP
+		focusColor		COLOR_FOCUSED
+		style			WINDOW_STYLE_FILLED	
+		onOpen			
+		{ 
+			play "mp_ingame_summary"; 
+			exec "setdvartotime ui_time_marker"; 	// animation start marker
+		}		
+		onESC 			
+		{ 
+			close self; 
+		}		
+		
+		// Top Bar
+		FRAMING( RECT_TOPBAR )
+		PREPROC_PERFORATION( (ORIGIN_TOPBAR_X+2), (ORIGIN_TOPBAR_Y+2), 64, 16, 0, 0, 0, 0 )
+		PREPROC_PERFORATION( (ORIGIN_TOPBAR_X+2), (ORIGIN_TOPBAR_Y+2), 64, 16, 0, 16, 0, 0 )
+		PREPROC_PERFORATION( (ORIGIN_TOPBAR_X+WIDTH_TOPBAR-64), (ORIGIN_TOPBAR_Y+2), -64, 16, 0, 0, 0, 0 )
+		PREPROC_PERFORATION( (ORIGIN_TOPBAR_X+WIDTH_TOPBAR-64), (ORIGIN_TOPBAR_Y+2), -64, 16, 0, 16, 0, 0 )
+		PREPROC_TEXT_DRAW( RECT_TOPBAR, 0 0, exp text("@MPUI_GAME_SUMMARY"), TEXTSIZE_DEFAULT, 0, 1, ITEM_ALIGN_MIDDLE_CENTER, EOG_TITLE_COLOR visible 1; ) 
+		
+		// Main frame
+		FRAMING( RECT_MAINFRAME )
+		FRAMING( ORIGIN_TOPBAR_X (ORIGIN_TOPBAR_X+HEIGHT_TOPBAR) WIDTH_TOPBAR 6 )
+		PREPROC_SHADER_DRAW( ORIGIN_TOPBAR_X (ORIGIN_TOPBAR_X+HEIGHT_TOPBAR) WIDTH_TOPBAR 6, 0 0, "white", 1 1 1 0.15, EOG_BORDER, EOG_BORDER_SIZE, 0 0 0 0 )	
+
+		// Inner Frames
+		PREPROC_SHADER_DRAW( ORIGIN_MAINFRAME ((WIDTH_MAINFRAME-18)/2) (HEIGHT_MAINFRAME-12), 6 6, "white", EOG_INNER_COLOR, WINDOW_BORDER_SUNKEN, 1, EOG_BORDER_COLOR ) 
+		PREPROC_SHADER_DRAW( ORIGIN_MAINFRAME ((WIDTH_MAINFRAME-18)/2) (HEIGHT_MAINFRAME-12), ((WIDTH_MAINFRAME-18)/2+12) 6, "white", EOG_INNER_COLOR, WINDOW_BORDER_SUNKEN, 1, EOG_BORDER_COLOR ) 
+		
+		// player content positioning
+		#define ORIGIN_PLAYER_SLOT1		14 (34+10)
+		#define ORIGIN_PLAYER_SLOT2		14 (48+10)
+		#define ORIGIN_PLAYER_SLOT3		14 (64+10)
+		#define ORIGIN_PLAYER_SLOT4		14 (80+10)
+		#define ORIGIN_PLAYER_SLOT5		14 (96+10)
+		#define ORIGIN_PLAYER_SLOT6		14 (112+10)
+		
+		#define ORIGIN_PLAYER_SLOT7		14 (130+10)
+		#define ORIGIN_PLAYER_SLOT8		14 (143+10)
+		
+		#define ORIGIN_PLAYER_SLOT9		14 (166+10)
+		
+		#define ORIGIN_PLAYER_SLOT10		14 (190+10)
+		#define ORIGIN_PLAYER_SLOT11		14 (203+10)
+		
+		#define ORIGIN_PLAYER_SLOT12		14 (220+10)
+		#define ORIGIN_PLAYER_SLOT13		14 (233+10)
+		
+		#define ORIGIN_PLAYER_SLOT14		14 (260+10)
+		#define ORIGIN_PLAYER_SLOT15		14 (274+10)
+		#define ORIGIN_PLAYER_SLOT16		14 (290+10)
+		#define ORIGIN_PLAYER_SLOT17		14 (306+10)
+		
+		#define ORIGIN_PLAYER_SLOT18		14 (337+10)
+		
+		#define ALIGNED_IN_X_KILLSTREAK			14
+		#define ALIGNED_IN_Y_KILLSTREAK			116
+		#define ALIGNED_IN_X_PLAYER_STATS		((WIDTH_MAINFRAME-18)/2-16)
+		
+		#define ICON_HARDPOINT1 "compass_objpoint_satallite"
+		#define ICON_HARDPOINT2 "compass_objpoint_airstrike"
+		#define ICON_HARDPOINT3 "compass_objpoint_helicopter"
+
+		// Player Statistics
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT1, exp text( dvarString( "ps_n" ) ), TEXTSIZE_SMALL, 0, -15, ITEM_ALIGN_LEFT, COLOR_INFO_YELLOW ) 
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT2, exp text( "@OW_EOG_KILLS" ), TEXTSIZE_SMALL, 0, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT2, exp text( dvarString( ps_k ) ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 		
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT3, exp text( "@OW_EOG_ACCURACY" ), TEXTSIZE_SMALL, 0, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT3, exp text( dvarString( ps_a ) + "%" ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 		
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT4, exp text( "@OW_EOG_KILLSTREAK" ), TEXTSIZE_SMALL, 0, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT4, exp text( dvarString( ps_ks ) ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 		
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT5, exp text( "@OW_EOG_LONGESTKILL" ), TEXTSIZE_SMALL, 0, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT5, exp text( dvarString( ps_l ) ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 		
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT6, exp text( "@OW_EOG_MELEEKILLS" ), TEXTSIZE_SMALL, 0, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT6, exp text( dvarString( ps_mk ) ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 		
+		
+		PREPROC_SHADER_DRAW( ORIGIN_MAINFRAME 24 24, ALIGNED_IN_X_KILLSTREAK ALIGNED_IN_Y_KILLSTREAK, "death_headshot", 1 1 1 1, 0, 2, 0.6 0.55 0.45 1 visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT7, exp text( "@OW_EOG_HEADSHOTS" ), TEXTSIZE_SMALL, 26, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT7, exp text( dvarString( ps_h ) ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 		
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT8, exp text( "@OW_EOG_LONGESTHEADSHOT" ), TEXTSIZE_SMALL, 26, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT8, exp text( dvarString( ps_lh ) ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 		
+
+		PREPROC_SHADER_DRAW( ORIGIN_MAINFRAME 24 24, ALIGNED_IN_X_KILLSTREAK (ALIGNED_IN_Y_KILLSTREAK+30), ICON_HARDPOINT1, 1 1 1 1, 0, 2, 0.6 0.55 0.45 1 visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT9, exp text( "@OW_EOG_HARDPOINTCALLED" ), TEXTSIZE_SMALL, 26, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT9, exp text( dvarString( ps_h1 ) ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 		
+
+		PREPROC_SHADER_DRAW( ORIGIN_MAINFRAME 24 24, ALIGNED_IN_X_KILLSTREAK (ALIGNED_IN_Y_KILLSTREAK+60), ICON_HARDPOINT2, 1 1 1 1, 0, 2, 0.6 0.55 0.45 1 visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT10, exp text( "@OW_EOG_HARDPOINTCALLED" ), TEXTSIZE_SMALL, 26, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT10, exp text( dvarString( ps_h2 ) ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 		
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT11, exp text( "@OW_EOG_HARDPOINTKILLS" ), TEXTSIZE_SMALL, 26, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT11, exp text( dvarString( ps_h2k ) ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+
+		PREPROC_SHADER_DRAW( ORIGIN_MAINFRAME 24 24, ALIGNED_IN_X_KILLSTREAK (ALIGNED_IN_Y_KILLSTREAK+90), ICON_HARDPOINT3, 1 1 1 1, 0, 2, 0.6 0.55 0.45 1 visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT12, exp text( "@OW_EOG_HARDPOINTCALLED" ), TEXTSIZE_SMALL, 26, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT12, exp text( dvarString( ps_h3 ) ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 		
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT13, exp text( "@OW_EOG_HARDPOINTKILLS" ), TEXTSIZE_SMALL, 26, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT13, exp text( dvarString( ps_h3k ) ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+	
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT15, exp text( "@OW_EOG_DEATHS" ), TEXTSIZE_SMALL, 0, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT15, exp text( dvarString( ps_d ) ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 	
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT16, exp text( "@OW_EOG_DEATHSTREAK" ), TEXTSIZE_SMALL, 0, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT16, exp text( dvarString( ps_ds ) ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 	
+		
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT17, exp text( "@OW_EOG_TEAMKILLS" ), TEXTSIZE_SMALL, 0, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT17, exp text( dvarString( ps_t ) ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 				
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT18, exp text( "@OW_EOG_DISTANCE" ), TEXTSIZE_SMALL, 0, -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT18, exp text( dvarString( ps_dt ) ), TEXTSIZE_SMALL, ALIGNED_IN_X_PLAYER_STATS, -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_pg ) == "1" ) ) 
+		
+		// Best/Worst Statistics
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT1, exp text( "@OW_EOG_BESTPLAYER" ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -15, ITEM_ALIGN_LEFT, COLOR_INFO_YELLOW ) 
+		
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT2, exp text( dvarString( gs_kn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_kn ) != dvarString( ps_n ) && dvarString( gs_k ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT2, exp text( dvarString( gs_k ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_kn ) != dvarString( ps_n ) && dvarString( gs_k ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT2, exp text( dvarString( gs_kn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_kn ) == dvarString( ps_n ) && dvarString( gs_k ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT2, exp text( dvarString( gs_k ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_kn ) == dvarString( ps_n ) && dvarString( gs_k ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT3, exp text( dvarString( gs_an ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_an ) != dvarString( ps_n ) && dvarString( gs_a ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT3, exp text( dvarString( gs_a ) + "%" ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_an ) != dvarString( ps_n ) && dvarString( gs_a ) != "0" && dvarString( gs_pg ) == "1" ) )		
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT3, exp text( dvarString( gs_an ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_an ) == dvarString( ps_n ) && dvarString( gs_a ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT3, exp text( dvarString( gs_a ) + "%" ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_an ) == dvarString( ps_n ) && dvarString( gs_a ) != "0" && dvarString( gs_pg ) == "1" ) )		
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT4, exp text( dvarString( gs_ksn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_ksn ) != dvarString( ps_n ) && dvarString( gs_ks ) != "0" && dvarString( gs_pg ) == "1" ) )
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT4, exp text( dvarString( gs_ks ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_ksn ) != dvarString( ps_n ) && dvarString( gs_ks ) != "0" && dvarString( gs_pg ) == "1" ) )			
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT4, exp text( dvarString( gs_ksn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_ksn ) == dvarString( ps_n ) && dvarString( gs_ks ) != "0" && dvarString( gs_pg ) == "1" ) )
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT4, exp text( dvarString( gs_ks ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_ksn ) == dvarString( ps_n ) && dvarString( gs_ks ) != "0" && dvarString( gs_pg ) == "1" ) )			
+		
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT5, exp text( dvarString( gs_ln ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_ln ) != dvarString( ps_n ) && dvarString( gs_l ) != "0 m" && dvarString( gs_l ) != "0 yd" && dvarString( gs_pg ) == "1" ) )
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT5, exp text( dvarString( gs_l ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_ln ) != dvarString( ps_n ) && dvarString( gs_l ) != "0 m" && dvarString( gs_l ) != "0 yd" && dvarString( gs_pg ) == "1" ) ) 			
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT5, exp text( dvarString( gs_ln ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_ln ) == dvarString( ps_n ) && dvarString( gs_l ) != "0 m" && dvarString( gs_l ) != "0 yd" && dvarString( gs_pg ) == "1" ) )
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT5, exp text( dvarString( gs_l ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_ln ) == dvarString( ps_n ) && dvarString( gs_l ) != "0 m" && dvarString( gs_l ) != "0 yd" && dvarString( gs_pg ) == "1" ) ) 			
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT6, exp text( dvarString( gs_mn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_mn ) != dvarString( ps_n ) && dvarString( gs_m ) != "0" && dvarString( gs_pg ) == "1" ) )
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT6, exp text( dvarString( gs_m ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_mn ) != dvarString( ps_n ) && dvarString( gs_m ) != "0" && dvarString( gs_pg ) == "1" ) )		
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT6, exp text( dvarString( gs_mn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_mn ) == dvarString( ps_n ) && dvarString( gs_m ) != "0" && dvarString( gs_pg ) == "1" ) )
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT6, exp text( dvarString( gs_m ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_mn ) == dvarString( ps_n ) && dvarString( gs_m ) != "0" && dvarString( gs_pg ) == "1" ) )		
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT7, exp text( dvarString( gs_hn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_hn ) != dvarString( ps_n ) && dvarString( gs_h ) != "0" && dvarString( gs_pg ) == "1" ) )
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT7, exp text( dvarString( gs_h ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_hn ) != dvarString( ps_n ) && dvarString( gs_h ) != "0" && dvarString( gs_pg ) == "1" ) )	
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT7, exp text( dvarString( gs_hn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_hn ) == dvarString( ps_n ) && dvarString( gs_h ) != "0" && dvarString( gs_pg ) == "1" ) )
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT7, exp text( dvarString( gs_h ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_hn ) == dvarString( ps_n ) && dvarString( gs_h ) != "0" && dvarString( gs_pg ) == "1" ) )	
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT8, exp text( dvarString( gs_lhn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_lhn ) != dvarString( ps_n ) && dvarString( gs_lh ) != "0 m" && dvarString( gs_lh ) != "0 yd" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT8, exp text( dvarString( gs_lh ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_lhn ) != dvarString( ps_n ) && dvarString( gs_lh ) != "0 m" && dvarString( gs_lh ) != "0 yd" && dvarString( gs_pg ) == "1" ) ) 			
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT8, exp text( dvarString( gs_lhn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_lhn ) == dvarString( ps_n ) && dvarString( gs_lh ) != "0 m" && dvarString( gs_lh ) != "0 yd" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT8, exp text( dvarString( gs_lh ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_lhn ) == dvarString( ps_n ) && dvarString( gs_lh ) != "0 m" && dvarString( gs_lh ) != "0 yd" && dvarString( gs_pg ) == "1" ) ) 			
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT9, exp text( dvarString( gs_h1n ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_h1n ) != dvarString( ps_n ) && dvarString( gs_h1 ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT9, exp text( dvarString( gs_h1 ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_h1n ) != dvarString( ps_n ) && dvarString( gs_h1 ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT9, exp text( dvarString( gs_h1n ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_h1n ) == dvarString( ps_n ) && dvarString( gs_h1 ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT9, exp text( dvarString( gs_h1 ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_h1n ) == dvarString( ps_n ) && dvarString( gs_h1 ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT10, exp text( dvarString( gs_h2n ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_h2n ) != dvarString( ps_n ) && dvarString( gs_h2 ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT10, exp text( dvarString( gs_h2 ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_h2n ) != dvarString( ps_n ) && dvarString( gs_h2 ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT10, exp text( dvarString( gs_h2n ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_h2n ) == dvarString( ps_n ) && dvarString( gs_h2 ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT10, exp text( dvarString( gs_h2 ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_h2n ) == dvarString( ps_n ) && dvarString( gs_h2 ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT11, exp text( dvarString( gs_h2kn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_h2kn ) != dvarString( ps_n ) && dvarString( gs_h2k ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT11, exp text( dvarString( gs_h2k ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_h2kn ) != dvarString( ps_n ) && dvarString( gs_h2k ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT11, exp text( dvarString( gs_h2kn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_h2kn ) == dvarString( ps_n ) && dvarString( gs_h2k ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT11, exp text( dvarString( gs_h2k ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_h2kn ) == dvarString( ps_n ) && dvarString( gs_h2k ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT12, exp text( dvarString( gs_h3n ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_h3n ) != dvarString( ps_n ) && dvarString( gs_h3 ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT12, exp text( dvarString( gs_h3 ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_h3n ) != dvarString( ps_n ) && dvarString( gs_h3 ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT12, exp text( dvarString( gs_h3n ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_h3n ) == dvarString( ps_n ) && dvarString( gs_h3 ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT12, exp text( dvarString( gs_h3 ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_h3n ) == dvarString( ps_n ) && dvarString( gs_h3 ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT13, exp text( dvarString( gs_h3kn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_h3kn ) != dvarString( ps_n ) && dvarString( gs_h3k ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT13, exp text( dvarString( gs_h3k ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_h3kn ) != dvarString( ps_n ) && dvarString( gs_h3k ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT13, exp text( dvarString( gs_h3kn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_h3kn ) == dvarString( ps_n ) && dvarString( gs_h3k ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT13, exp text( dvarString( gs_h3k ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_h3kn ) == dvarString( ps_n ) && dvarString( gs_h3k ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT14, exp text( "@OW_EOG_WORSTPLAYER" ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -15, ITEM_ALIGN_LEFT, COLOR_INFO_YELLOW visible when( dvarString( gs_pg ) == "1" ) ) 
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT15, exp text( dvarString( gs_dn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_dn ) != dvarString( ps_n ) && dvarString( gs_d ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT15, exp text( dvarString( gs_d ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_dn ) != dvarString( ps_n ) && dvarString( gs_d ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT15, exp text( dvarString( gs_dn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_dn ) == dvarString( ps_n ) && dvarString( gs_d ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT15, exp text( dvarString( gs_d ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_dn ) == dvarString( ps_n ) && dvarString( gs_d ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT16, exp text( dvarString( gs_dsn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_dsn ) != dvarString( ps_n ) && dvarString( gs_ds ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT16, exp text( dvarString( gs_ds ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_dsn ) != dvarString( ps_n ) && dvarString( gs_ds ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT16, exp text( dvarString( gs_dsn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_dsn ) == dvarString( ps_n ) && dvarString( gs_ds ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT16, exp text( dvarString( gs_ds ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_dsn ) == dvarString( ps_n ) && dvarString( gs_ds ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT17, exp text( dvarString( gs_tn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_tn ) != dvarString( ps_n ) && dvarString( gs_t ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT17, exp text( dvarString( gs_t ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_tn ) != dvarString( ps_n ) && dvarString( gs_t ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT17, exp text( dvarString( gs_tn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_tn ) == dvarString( ps_n ) && dvarString( gs_t ) != "0" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT17, exp text( dvarString( gs_t ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_tn ) == dvarString( ps_n ) && dvarString( gs_t ) != "0" && dvarString( gs_pg ) == "1" ) ) 			
+
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT18, exp text( dvarString( gs_dtn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, EOG_TEXT_COLOR visible when( dvarString( gs_dtn ) != dvarString( ps_n ) && dvarString( gs_dt ) != "0 m" && dvarString( gs_dt ) != "0 yd" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT18, exp text( dvarString( gs_dt ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, EOG_TEXT_COLOR visible when( dvarString( gs_dtn ) != dvarString( ps_n ) && dvarString( gs_dt ) != "0 m" && dvarString( gs_dt ) != "0 yd" && dvarString( gs_pg ) == "1" ) ) 			
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT18, exp text( dvarString( gs_dtn ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5), -10, ITEM_ALIGN_LEFT, COLOR_INFO_ORANGE visible when( dvarString( gs_dtn ) == dvarString( ps_n ) && dvarString( gs_dt ) != "0 m" && dvarString( gs_dt ) != "0 yd" && dvarString( gs_pg ) == "1" ) ) 
+		PREPROC_TEXT_DRAW_EXP( ORIGIN_MAINFRAME 0 0, ORIGIN_PLAYER_SLOT18, exp text( dvarString( gs_dt ) ), TEXTSIZE_SMALL, (((WIDTH_MAINFRAME-18)/2)+5+ALIGNED_IN_X_PLAYER_STATS), -10, ITEM_ALIGN_RIGHT, COLOR_INFO_ORANGE visible when( dvarString( gs_dtn ) == dvarString( ps_n ) && dvarString( gs_dt ) != "0 m" && dvarString( gs_dt ) != "0 yd" && dvarString( gs_pg ) == "1" ) ) 			
+		
+		PC_BUTTON("@MENU_GOTO_NEXT", ORIGIN_TOPBAR_X (ORIGIN_TOPBAR_Y+HEIGHT_TOPBAR+6+HEIGHT_MAINFRAME) WIDTH_TOPBAR HEIGHT_TOPBAR, close self;, 1 )
+	}
+}			
